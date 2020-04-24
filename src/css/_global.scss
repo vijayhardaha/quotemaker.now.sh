@@ -1,0 +1,42 @@
+body {
+	-webkit-font-smoothing: antialiased;
+	font-family: $font-family-base;
+	font-size: $font-size-base;
+	height: auto;
+	line-height: $line-height-base;
+	overflow: auto;
+	padding: 0;
+}
+a {
+	color: $link-color;
+	outline: 0;
+	&:hover,
+	&:focus {
+		color: $link-hover-color;
+		text-decoration: $link-hover-decoration;
+	}
+}
+::selection {
+	color: $white;
+	background: #ddd;
+}
+.btn {
+	border-radius: $border-radius-base;
+	font-size: 16px;
+	outline: 0 !important;
+	svg {
+		fill: currentColor;
+	}
+	&.btn-primary {
+		@include button-variant($white, $brand, darken($brand, 1%));
+	}
+	&.btn-default {
+		@include button-variant($gray-light, #f8f8f8, darken(#f8f8f8, 10%));
+	}
+}
+body .ui-state-highlight {
+	height: 36px;
+	border: 1px dashed #DDD;
+	background-color: rgba(#f8f8f8, 0.3);
+	margin: 5px 0;
+}

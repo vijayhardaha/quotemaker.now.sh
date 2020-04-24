@@ -1,0 +1,16 @@
+header {
+	position: relative;
+	text-align: center;
+	.entry-header {
+		margin: 0 auto 40px auto;
+		max-width: 100%;
+		width: 400px;
+	}
+	.entry-title {
+		color: $brand;
+		font-size: 5rem;
+		font-weight: 700;
+		margin: 15px 0 10px 0;
+		padding: 0;
+	}
+}

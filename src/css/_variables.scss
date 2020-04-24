@@ -1,0 +1,37 @@
+//
+// Variables
+// --------------------------------------------------
+
+//== Colors
+$white: #fff !default;
+$black: #000 !default;
+$brand: #19d0ed !default;
+
+$gray-base: #000 !default;
+$gray-darker: lighten($gray-base, 13.5%) !default; // #222
+$gray-dark: lighten($gray-base, 20%) !default; // #333
+$gray: lighten($gray-base, 33.5%) !default; // #555
+$gray-light: lighten($gray-base, 46.7%) !default; // #777
+$gray-lighter: lighten($gray-base, 93.5%) !default; // #eee
+
+//## Settings for some of the most global styles.
+
+//** Background color for `<body>`.
+$body-bg: #fff !default;
+//** Global text color on `<body>`.
+$text-color: $gray-dark !default;
+
+//** Global textual link color.
+$link-color: $brand !default;
+//** Link hover color set via `darken()` function.
+$link-hover-color: darken($link-color, 15%) !default;
+//** Link hover decoration.
+$link-hover-decoration: underline !default;
+
+//== Typography
+
+$border-radius-base: 4px !default;
+$primary-font: 'Inconsolata', monospace !default;
+$font-family-base: $primary-font !default;
+$font-size-base: 16px !default;
+$line-height-base: 1.5 !default;

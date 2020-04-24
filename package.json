@@ -1,0 +1,33 @@
+{
+  "name": "quotation-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch": "parcel index.html",
+    "build": "rm -rf dist && rm -rf .cache && parcel build index.html --public-url=https://quoteit.now.sh/ --no-source-maps"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vijayhardaha/quotation-generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vijayhardaha/quotation-generator/issues"
+  },
+  "homepage": "https://github.com/vijayhardaha/quotation-generator#readme",
+  "devDependencies": {
+    "autoprefixer": "^9.7.6",
+    "dom-to-image": "^2.6.0",
+    "file-saver": "^2.0.2",
+    "inputmask": "^5.0.3",
+    "jquery": "^3.5.0",
+    "jquery-ui-dist": "^1.12.1",
+    "parcel-bundler": "^1.12.4",
+    "postcss-modules": "^2.0.0",
+    "sass": "^1.26.3",
+    "sweetalert": "^2.1.2"
+  }
+}
