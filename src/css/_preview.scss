@@ -109,6 +109,22 @@
 			}
 		}
 	}
+	.preview-foter {
+		display: block;
+		margin: 15px 0;
+		.info-block {
+			margin: 15px 0;
+			h4,
+			p {
+				margin: 0;
+			}
+			h4 {
+				color: $brand;
+				font-weight: 700;
+				margin-bottom: 5px;
+			}
+		}
+	}
 }
 .overlay {
 	background: $black;

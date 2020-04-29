@@ -27,7 +27,7 @@
     "jquery-ui-dist": "^1.12.1",
     "parcel-bundler": "^1.12.4",
     "postcss-modules": "^2.0.0",
-    "sass": "^1.26.3",
+    "sass": "^1.26.5",
     "sweetalert": "^2.1.2"
   }
 }
