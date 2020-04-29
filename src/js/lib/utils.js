@@ -61,8 +61,7 @@ class Utils {
   setupInputMask() {
     this.dom( ".item-price input, .item-amount :input, #other-amount, #discount-amount" ).attr( "data-inputmask", "'alias': 'numeric', 'groupSeparator': '', 'digits': 2,'digitsOptional': true, 'placeholder': '0'" ).change();
     this.dom( ".item-qty :input" ).attr( "data-inputmask-regex", "[0-9]{1,3}" ).change();
-    this.dom( ":input:not(.enhanced-input)" )
-    this.dom( ":input:not(.enhanced-input)" ).each( ( i, e ) => {
+    this.dom( ".item-group :input:not(.enhanced-input), .summary-group :input:not(.enhanced-input)" ).each( ( i, e ) => {
       $( e ).inputmask( {
         showMaskOnHover: false,
       } );
@@ -77,6 +76,14 @@ class Utils {
     eva.replace( { width: "18px", height: "18px" } );
   }
 
+  /**
+   * Converts newlines to br
+   * @param {String} text Text string
+   */
+  nl2br( text = "" ) {
+    return text.replace( /\n/g, "<br>" );
+	}
+	
   /**
    * Convert to int
    * @param {Number} number 
@@ -101,6 +108,8 @@ class Utils {
     const data = {
       title: '',
       description: '',
+      notes: '',
+      terms: '',
       items: [],
       discount: {
         type: 0,
@@ -122,7 +131,7 @@ class Utils {
         showDesc: true,
         showDiscount: false,
         showCustomAmount: false
-      }
+      },
     };
 
     // Get filters details.
@@ -135,6 +144,8 @@ class Utils {
     // Get title & description
     data.title = this.dom( "#title" ).val();
     data.description = this.dom( "#description" ).val();
+    data.notes = this.dom( "#notes" ).val();
+    data.terms = this.dom( "#terms-conditions" ).val();
 
     const rows = this.dom( ".item-group .item-rows .item-row" );
     if ( rows.length ) {

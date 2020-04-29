@@ -62,8 +62,8 @@ jQuery( document ).ready( ( $ ) => {
         placeholder: "ui-state-highlight",
         cursor: "move",
         axis: "y"
-			} );
-			// Initialize update totals.
+      } );
+      // Initialize update totals.
       this.updateTotals();
     }
 

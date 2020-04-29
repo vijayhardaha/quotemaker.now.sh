@@ -30108,8 +30108,7 @@ var Utils = /*#__PURE__*/function () {
     value: function setupInputMask() {
       this.dom(".item-price input, .item-amount :input, #other-amount, #discount-amount").attr("data-inputmask", "'alias': 'numeric', 'groupSeparator': '', 'digits': 2,'digitsOptional': true, 'placeholder': '0'").change();
       this.dom(".item-qty :input").attr("data-inputmask-regex", "[0-9]{1,3}").change();
-      this.dom(":input:not(.enhanced-input)");
-      this.dom(":input:not(.enhanced-input)").each(function (i, e) {
+      this.dom(".item-group :input:not(.enhanced-input), .summary-group :input:not(.enhanced-input)").each(function (i, e) {
         $(e).inputmask({
           showMaskOnHover: false
         });
@@ -30127,6 +30126,17 @@ var Utils = /*#__PURE__*/function () {
         width: "18px",
         height: "18px"
       });
+    }
+    /**
+     * Converts newlines to br
+     * @param {String} text Text string
+     */
+
+  }, {
+    key: "nl2br",
+    value: function nl2br() {
+      var text = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
+      return text.replace(/\n/g, "<br>");
     }
     /**
      * Convert to int
@@ -30163,6 +30173,8 @@ var Utils = /*#__PURE__*/function () {
       var data = {
         title: '',
         description: '',
+        notes: '',
+        terms: '',
         items: [],
         discount: {
           type: 0,
@@ -30195,6 +30207,8 @@ var Utils = /*#__PURE__*/function () {
 
       data.title = this.dom("#title").val();
       data.description = this.dom("#description").val();
+      data.notes = this.dom("#notes").val();
+      data.terms = this.dom("#terms-conditions").val();
       var rows = this.dom(".item-group .item-rows .item-row");
 
       if (rows.length) {
@@ -31242,10 +31256,12 @@ var Preview = /*#__PURE__*/function () {
       var data = this.utils.getJson();
       var titleElement = this.utils.dom(".preview-box .project-title");
       var descriptionElement = this.utils.dom(".preview-box .project-desc");
+      var extraInfoElement = this.utils.dom(".preview-box .extra-info");
       var tableBody = this.utils.dom(".preview-box .quote-table tbody");
       var tableFoot = this.utils.dom(".preview-box .quote-table tfoot");
       titleElement.empty();
       descriptionElement.empty();
+      extraInfoElement.empty();
       tableBody.empty();
       tableFoot.empty();
 
@@ -31255,6 +31271,14 @@ var Preview = /*#__PURE__*/function () {
 
       if (data.description != '') {
         descriptionElement.text(data.description);
+      }
+
+      if (data.terms != '') {
+        extraInfoElement.append("<div class=\"info-block\"><h4>Terms & Conditions:</h4><p>".concat(this.utils.nl2br(data.terms), "</p></div>"));
+      }
+
+      if (data.notes != '') {
+        extraInfoElement.append("<div class=\"info-block text-center\"><p>".concat(this.utils.nl2br(data.notes), "</p></div>"));
       }
 
       var items = data.items;

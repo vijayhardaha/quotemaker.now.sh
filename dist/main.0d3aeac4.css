@@ -7699,18 +7699,18 @@ footer .social li a svg {
 .preview-box .preview-actions a span {
   margin-left: 5px;
 }
-.preview-box .preview-foter {
+.preview-box .extra-info {
   display: block;
   margin: 15px 0;
 }
-.preview-box .preview-foter .info-block {
+.preview-box .extra-info .info-block {
   margin: 15px 0;
 }
-.preview-box .preview-foter .info-block h4,
-.preview-box .preview-foter .info-block p {
+.preview-box .extra-info .info-block h4,
+.preview-box .extra-info .info-block p {
   margin: 0;
 }
-.preview-box .preview-foter .info-block h4 {
+.preview-box .extra-info .info-block h4 {
   color: #19d0ed;
   font-weight: 700;
   margin-bottom: 5px;

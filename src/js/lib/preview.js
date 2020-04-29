@@ -20,19 +20,31 @@ class Preview {
     const data = this.utils.getJson();
     const titleElement = this.utils.dom( ".preview-box .project-title" );
     const descriptionElement = this.utils.dom( ".preview-box .project-desc" );
+    const extraInfoElement = this.utils.dom( ".preview-box .extra-info" );
+
     const tableBody = this.utils.dom( ".preview-box .quote-table tbody" );
     const tableFoot = this.utils.dom( ".preview-box .quote-table tfoot" );
 
     titleElement.empty();
     descriptionElement.empty();
+    extraInfoElement.empty();
     tableBody.empty();
     tableFoot.empty();
 
     if ( data.title != '' ) {
       titleElement.text( data.title );
     }
+
     if ( data.description != '' ) {
       descriptionElement.text( data.description );
+    }
+
+    if ( data.terms != '' ) {
+      extraInfoElement.append( `<div class="info-block"><h4>Terms & Conditions:</h4><p>${this.utils.nl2br(data.terms)}</p></div>` );
+    }
+
+    if ( data.notes != '' ) {
+      extraInfoElement.append( `<div class="info-block text-center"><p>${this.utils.nl2br(data.notes)}</p></div>` );
     }
 
     const items = data.items;
