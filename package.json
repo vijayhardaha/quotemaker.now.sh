@@ -19,15 +19,15 @@
   },
   "homepage": "https://github.com/vijayhardaha/quotation-generator#readme",
   "devDependencies": {
-    "autoprefixer": "^9.7.6",
+    "autoprefixer": "^9.8.0",
     "dom-to-image": "^2.6.0",
     "file-saver": "^2.0.2",
     "inputmask": "^5.0.3",
-    "jquery": "^3.5.0",
+    "jquery": "^3.5.1",
     "jquery-ui-dist": "^1.12.1",
     "parcel-bundler": "^1.12.4",
     "postcss-modules": "^2.0.0",
-    "sass": "^1.26.5",
+    "sass": "^1.26.8",
     "sweetalert": "^2.1.2"
   }
 }
