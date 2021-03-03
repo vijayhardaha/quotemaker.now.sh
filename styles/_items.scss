@@ -1,0 +1,316 @@
+.items {
+  display: block;
+  width: 100%;
+  margin: 0 0 rem(15);
+
+  .item-col {
+
+    &.name,
+    &.description {
+      flex-grow: 1;
+    }
+
+    &.qty {
+      width: rem(40);
+      flex: 0 0 rem(40);
+    }
+
+    &.cost,
+    &.time {
+      width: rem(70);
+      flex: 0 0 rem(70);
+    }
+
+    &.amount {
+      width: rem(100);
+      flex: 0 0 rem(100);
+    }
+
+    &.description,
+    &.time,
+    &.qty,
+    &.cost {
+      display: none;
+    }
+  }
+
+  .item-group {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    flex-wrap: wrap;
+  }
+
+  .items-head {
+    display: flex;
+    align-items: stretch;
+    flex-direction: row;
+    margin-bottom: 1rem;
+    color: $text-color;
+    border-bottom: 1px solid $input-border-color;
+    font-weight: 600;
+    flex-wrap: nowrap;
+
+    .item-col {
+      padding: rem(5);
+      text-align: center;
+
+      &.name {
+        padding-left: 0;
+        text-align: left;
+      }
+
+      @include breakpoint-xs-max {
+        &:not(.amount) {
+          flex-grow: 1;
+        }
+
+        &.name {
+          width: 100%;
+          text-align: center;
+
+          .has-qty & {
+            border-bottom: 1px solid $input-border-color;
+          }
+        }
+
+        &.amount {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          border-left: 1px solid $input-border-color;
+        }
+      }
+    }
+  }
+
+  .item-row {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    flex-direction: row;
+    margin-bottom: 1rem;
+    padding-top: rem(28);
+    flex-wrap: nowrap;
+
+    .form-control {
+      border-width: 0;
+      background: transparent;
+
+      &:focus {
+        box-shadow: none;
+      }
+    }
+
+    .item-col {
+      border: 1px solid $input-border-color;
+
+      &.description {
+        border-top-width: 0;
+      }
+
+      &.qty,
+      &.time,
+      &.cost,
+      &.amount {
+        .form-control {
+          padding: 0.625em 0.25em;
+          text-align: center;
+        }
+      }
+
+      &.amount {
+        border-left-width: 0;
+        background: $dim-light;
+
+        .form-control {
+          height: 100%;
+        }
+      }
+
+      @include breakpoint-sm-min {
+        &.description {
+          width: 100%;
+          order: 5;
+          flex: 0 0 100%;
+        }
+
+        &.qty,
+        &.time,
+        &.cost,
+        &.amount {
+          border-left-width: 0;
+        }
+      }
+
+      @include breakpoint-xs-max {
+        &:not(.amount) {
+          flex-grow: 1;
+        }
+
+        &.name {
+          .has-qty & {
+            border-bottom-width: 0;
+          }
+        }
+
+        &.description {
+          .has-qty & {
+            border-top-width: 1px;
+            border-bottom-width: 0;
+          }
+
+          .has-time & {
+            border-bottom-width: 0;
+          }
+        }
+
+        &.description,
+        &.name {
+          width: 100%;
+          flex: 0 0 100%;
+        }
+
+        &.time,
+        &.cost {
+          border-left-width: 0;
+        }
+
+        &.time {
+          form:not(.has-qty) & {
+            border-left-width: 1px;
+          }
+        }
+      }
+    }
+
+    .item-remove {
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: rem(100);
+      height: rem(28);
+      cursor: pointer;
+      text-decoration: none;
+      color: $white;
+      outline: 0;
+      background: $primary-color;
+      font-size: em(14);
+      font-weight: 400;
+
+      &:hover {
+        background: darken($primary-color, 10%);
+      }
+
+      i {
+        margin-right: em(5);
+      }
+    }
+  }
+}
+
+.summary {
+  table {
+    border-color: $input-border-color;
+
+    tr {
+      td {
+        padding: em(12) em(16);
+        vertical-align: middle;
+      }
+
+      td:first-child {
+        text-align: right;
+        font-weight: 600;
+      }
+
+      td:last-child {
+        width: rem(100);
+        text-align: center;
+      }
+
+      &.total {
+        td {
+          background: $dim-light;
+        }
+      }
+    }
+  }
+
+  .table-bordered>thead>tr>th,
+  .table-bordered>tbody>tr>th,
+  .table-bordered>tfoot>tr>th,
+  .table-bordered>thead>tr>td,
+  .table-bordered>tbody>tr>td,
+  .table-bordered>tfoot>tr>td {
+    border-color: $input-border-color;
+  }
+
+  .inline-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+
+    >span {
+      margin-left: rem(8);
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      .form-control {
+        min-width: em(50);
+        height: em(34);
+        padding: 0.125em 0.625em;
+      }
+    }
+  }
+}
+
+.discount-row,
+.vat-row,
+.custom-row,
+.total-time {
+  display: none;
+}
+
+.has-discount .discount-row,
+.has-vat .vat-row,
+.has-custom .custom-row,
+.has-time .total-time {
+  display: table-row;
+}
+
+.has-qty .items {
+  .item-col {
+
+    &.qty,
+    &.cost {
+      display: block;
+    }
+
+    &.amount {
+      pointer-events: none;
+    }
+  }
+}
+
+.has-description .items {
+  .item-col {
+    &.description {
+      display: block;
+    }
+  }
+}
+
+.has-time .items {
+  .item-col {
+    &.time {
+      display: block;
+    }
+  }
+}

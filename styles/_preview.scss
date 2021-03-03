@@ -1,0 +1,244 @@
+#preview-box {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  right: 0;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  transition: all 0s ease-in-out 0.5s;
+
+  .overlay {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba($black, 0.4);
+  }
+
+  .content {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    overflow: hidden;
+    width: rem(992);
+    max-width: 100%;
+    height: 100%;
+    transition: transform 0.5s;
+    transform: translate3d(110%, 0, 0);
+    background: $white;
+    box-shadow: rgba($black, 0.075) -20px 0px 30px;
+
+    .btn-group {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      align-items: stretch;
+      justify-content: space-between;
+      flex-direction: row;
+      width: 100%;
+      padding: 0;
+      background: $white;
+      box-shadow: rgba($black, 0.075) 0px -20px 30px;
+      flex-wrap: nowrap;
+
+      .btn {
+        border-radius: 0;
+        font-size: em(16);
+        flex-grow: 1;
+
+        @include breakpoint-sm-max {
+          font-size: em(14);
+        }
+      }
+    }
+  }
+
+  &.open {
+    opacity: 1;
+    visibility: visible;
+    transition: all 0s ease-in-out;
+
+    .content {
+      transform: translateZ(0);
+    }
+  }
+}
+
+.preview-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow-y: scroll;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 4em;
+  background: $white;
+
+  #preview {
+    display: block;
+    width: 100%;
+    padding: 1.825em;
+  }
+}
+
+.preview-header {
+  display: block;
+  width: 100%;
+  margin-bottom: 2em;
+
+  .project-title {
+    display: block;
+    margin: 0 0 0.5em;
+    padding: 0;
+    color: $primary-color;
+    font-size: 2.5em;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  .project-description {
+    margin: 0;
+  }
+}
+
+.preview-terms {
+  display: block;
+  width: 100%;
+  margin-top: rem(16);
+
+  h3 {
+    display: block;
+    margin: 0 0 rem(8);
+    padding: 0;
+    color: $primary-color;
+    font-size: 1.25em;
+    font-weight: 600;
+    line-height: 1;
+  }
+}
+
+.preview-notes {
+  display: block;
+  width: 100%;
+  margin-top: rem(16);
+  padding-top: rem(16);
+  border-top: 1px solid $input-border-color;
+}
+
+.preview-items,
+.preview-summary {
+  position: relative;
+
+  table {
+    margin: 0;
+    border-color: $white;
+
+    td,
+    th {
+      text-align: center;
+      vertical-align: middle;
+      background: #f8f8f8;
+    }
+  }
+
+  .table-bordered>thead>tr>th,
+  .table-bordered>tbody>tr>th,
+  .table-bordered>tfoot>tr>th,
+  .table-bordered>thead>tr>td,
+  .table-bordered>tbody>tr>td,
+  .table-bordered>tfoot>tr>td {
+    border-color: $white;
+  }
+}
+
+.preview-summary {
+  display: flex;
+  justify-content: flex-end;
+  width: rem(320);
+  max-width: 100%;
+  margin-left: auto;
+
+  table {
+    td {
+      &:last-child {
+        width: rem(100);
+        background: rgba($black, 0.07);
+      }
+    }
+  }
+}
+
+.preview-items {
+  table {
+
+    td,
+    th {
+      &.description {
+        text-align: left;
+      }
+
+      &.amount,
+      &.no {
+        color: $white;
+        background: $primary-color;
+      }
+
+      &.cost {
+        background: rgba($black, 0.07);
+      }
+
+      &.amount {
+        width: 100px;
+      }
+
+      &.no {
+        width: 40px;
+      }
+
+      &.qty,
+      &.time {
+        width: 50px;
+      }
+
+      &.cost {
+        width: 80px;
+      }
+    }
+
+    td.description {
+      h4 {
+        display: block;
+        margin: 0 0 5px;
+        color: $primary-color;
+        font-size: 1em;
+      }
+
+      span {
+        display: block;
+        font-size: 0.75em;
+      }
+    }
+  }
+}
+
+.branding {
+  margin-top: 2em;
+  margin-bottom: 0;
+  text-align: center;
+  letter-spacing: 0.5px;
+  color: #aaa;
+  font-size: em(12);
+
+  a {
+    text-decoration: none;
+    pointer-events: none;
+    color: $primary-color;
+  }
+}

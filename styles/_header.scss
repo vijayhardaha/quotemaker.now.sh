@@ -1,0 +1,117 @@
+#header {
+  padding: 50px 0;
+
+  .header-content {
+    display: block;
+    width: rem(992);
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .waves {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    width: 100%;
+    height: rem(420);
+    pointer-events: none;
+
+    div {
+      position: absolute;
+      display: block;
+      width: rem(3000);
+      content: "";
+      background-size: contain;
+
+      &.wave-front {
+        z-index: -1;
+        top: 0;
+        left: 0;
+        opacity: 0.6;
+        height: rem(337);
+        animation: loopFront 20s linear infinite;
+        background-image: url(../public/svg/wave-front.svg);
+        background-repeat: repeat-x;
+      }
+
+      &.wave-back {
+        z-index: -2;
+        top: rem(-100);
+        left: 0;
+        opacity: 0.4;
+        height: rem(493);
+        animation: loopBack 20s linear infinite;
+        background-image: url(../public/svg/wave-back.svg);
+        background-repeat: repeat-x;
+      }
+
+      @keyframes loopFront {
+        0% {
+          background-position: 0 0;
+        }
+
+        100% {
+          background-position: rem(2000) 0;
+        }
+      }
+
+      @keyframes loopBack {
+        0% {
+          background-position: 0 0;
+        }
+
+        100% {
+          background-position: rem(-2000) 0;
+        }
+      }
+    }
+  }
+
+  .site-title {
+    display: block;
+    max-width: 100%;
+    margin: 0 0 rem(30);
+    text-transform: uppercase;
+    color: $white;
+    font-family: $font-family-heading;
+    font-size: em(48);
+    font-weight: 900;
+    line-height: 1;
+
+    a {
+      text-decoration: none;
+      color: inherit;
+
+      &:hover,
+      &:focus {
+        color: inherit;
+      }
+    }
+
+    @include breakpoint-sm-min {
+      font-size: em(64);
+    }
+  }
+
+  .site-description {
+    color: $white;
+    font-size: em(18);
+    font-weight: 400;
+  }
+
+  .share-btn {
+    margin-top: rem(30);
+
+    i {
+      margin: 0;
+      margin-left: rem(8);
+    }
+  }
+
+  @include breakpoint-xs-max {
+    padding: em(35) 0 0;
+    text-align: center;
+  }
+}

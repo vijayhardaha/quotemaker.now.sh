@@ -1,0 +1,59 @@
+/* Define colors configs */
+$black: #000000 !default;
+$dim-light: #f5f7fa !default;
+$gray: #e3e7f1 !default;
+$light: #c6cbef !default;
+$white: #ffffff !default;
+
+/* Body configs */
+$bg-color: #ffffff !default;
+$font-family-heading: "Montserrat", sans-serif !default;
+$font-family-base: "Open Sans", sans-serif !default;
+$font-size-base: 1em;
+$font-weight-base: 400;
+$letter-spacing-base: 0.8px;
+$line-height-base: 1.5em;
+$primary-color: #00bcd4 !default;
+$text-color: #545454 !default;
+
+/* Buttons configs */
+$btn-bg-color: #46494c !default;
+$btn-border-color: #46494c !default;
+$btn-color: $white !default;
+$primary-btn-bg-color: $primary-color !default;
+$primary-btn-border-color: $primary-color !default;
+$primary-btn-color: $white !default;
+$secondary-btn-bg-color: #4c5c68 !default;
+$secondary-btn-border-color: #4c5c68 !default;
+$secondary-btn-color: $white !default;
+$btn-border-width: 1px !default;
+$btn-border-radius: 0.25rem !default;
+
+/* Form inputs configs */
+$input-bg-color: #f5f7fa !default;
+$input-border-color: #e3e7f1 !default;
+$input-placeholder-color: #aaaaaa !default;
+$input-text-color: $text-color !default;
+$input-border-width: 2px !default;
+$input-border-radius: 0.25rem !default;
+
+/* Footer configs */
+$footer-bg-color: #4c5c68 !default;
+$footer-text-color: $white !default;
+$footer-link-color: $white !default;
+$footer-link-hover-color: $primary-color !default;
+
+/* Media queries breakpoints */
+// Small screen / tablet
+$screen-sm-min: 768px;
+// Medium screen / desktop
+$screen-md-min: 992px;
+// Large screen / wide desktop
+$screen-lg-min: 1200px;
+
+// So media queries don't overlap when required, provide a maximum
+$screen-xs-max: ($screen-sm-min - 1);
+$screen-sm-max: ($screen-md-min - 1);
+$screen-md-max: ($screen-lg-min - 1);
+
+$checkbox-size: 22px !default;

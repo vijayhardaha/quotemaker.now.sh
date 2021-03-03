@@ -1,0 +1,25 @@
+/* Import boostrap 3 from node modules */
+@import "~bootstrap3/dist/css/bootstrap.css";
+
+/* Import variables */
+@import "variables";
+
+/* Import functions */
+@import "functions";
+
+/* Import mixins */
+@import "mixins";
+
+/* Import font face */
+@import "icofont";
+
+/* Import global layouts */
+@import "global";
+@import "form-input";
+
+/* Import Header & Footer layouts */
+@import "header";
+@import "footer";
+@import "filter";
+@import "items";
+@import "preview";

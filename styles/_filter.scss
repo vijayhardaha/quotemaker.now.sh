@@ -1,0 +1,79 @@
+.filter-box {
+  display: block;
+  width: 100%;
+  margin: 0 0 2.5em;
+  padding: 1.5em 1.25em 0;
+  border-radius: 0.5em;
+  background: $white;
+  box-shadow: rgba($black, 0.01) 0px 1px 0px, rgba($black, 0.025) 0px 0px 8px, rgba($black, 0.075) 0px 20px 30px;
+
+  .dropdown-fields {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+
+    .form-group {
+      position: relative;
+
+      select {
+        cursor: pointer;
+      }
+
+      &::after {
+        font-family: "IcoFont" !important;
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        white-space: nowrap;
+        word-wrap: normal;
+        direction: ltr;
+        line-height: 1;
+        /* Better Font Rendering =========== */
+        font-feature-settings: "liga";
+        -webkit-font-smoothing: antialiased;
+        content: "\ea99";
+        position: absolute;
+        right: em(10);
+        top: 50%;
+        z-index: 2;
+        transform: translateY(-50%);
+      }
+    }
+
+    @include breakpoint-sm-min {
+      flex-direction: row;
+
+      .form-group {
+        width: 50%;
+
+        &:first-child {
+          margin-right: 0.5em;
+        }
+
+        &:last-child {
+          margin-left: 0.5em;
+        }
+      }
+    }
+  }
+
+  .checkbox-fields {
+    @include breakpoint-xs-max {
+      display: flex;
+      flex-wrap: wrap;
+
+      .form-check {
+        width: 50%;
+      }
+    }
+  }
+
+  @include breakpoint-sm-min {
+    position: sticky;
+    z-index: 2;
+    top: 0;
+  }
+}
