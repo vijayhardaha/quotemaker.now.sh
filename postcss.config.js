@@ -12,6 +12,28 @@ module.exports = {
 					"custom-properties": false,
 				},
 			},
-		]
+		],
+		[
+			"@fullhuman/postcss-purgecss",
+			{
+				content: [
+					"./node_modules/react-bootstrap/**/*.{js,jsx,ts,tsx}",
+					"./pages/**/*.{js,jsx,ts,tsx}",
+					"./components/**/*.{js,jsx,ts,tsx}",
+				],
+				safelist: [
+					"html",
+					"body",
+					"btn-primary",
+					"btn-dark",
+					"btn-danger",
+					"btn-secondary",
+					/col-*/,
+				],
+				defaultExtractor: (content) =>
+					content.match(/[\w-/:]+(?<!:)/g) || [],
+			},
+		],
+		"postcss-combine-media-query",
 	],
 };

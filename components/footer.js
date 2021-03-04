@@ -46,7 +46,7 @@ const Footer = () => {
 			<footer className="site-footer">
 				<Wrapper>
 					<div className="footer-inner">
-						<p className="copyright">&copy; 2020 Quotemaker</p>
+						<p className="copyright">&copy; 2020 <Link href="/">Quote Maker</Link></p>
 						<div className="links">
 							{links.map(({ url, title, external }, i) => {
 								return external ? (

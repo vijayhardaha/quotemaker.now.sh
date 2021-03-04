@@ -14,7 +14,7 @@ const Modal = ({ resetForm, showModal }) => {
 				<h3 className="modal-heading">Reset data?</h3>
 				<p className="modal-text">
 					This can't be undone. All the form data will be set to
-					default data and you all changes will be gone.
+					default data and all your changes will be gone.
 				</p>
 				<div className="modal-actions">
 					<Button

@@ -17,6 +17,7 @@
 		"last 4 major versions"
 	],
 	"devDependencies": {
+		"@fullhuman/postcss-purgecss": "^4.0.2",
 		"actionsack": "0.0.13",
 		"autoprefixer": "^9.8.6",
 		"bootstrap": "^4.6.0",
@@ -24,6 +25,7 @@
 		"dom-to-image": "^2.6.0",
 		"file-saver": "^2.0.5",
 		"postcss": "^8.2.7",
+		"postcss-combine-media-query": "^1.0.1",
 		"postcss-flexbugs-fixes": "^5.0.2",
 		"postcss-preset-env": "^6.7.0",
 		"react-bootstrap": "^1.5.1",

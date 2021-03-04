@@ -21,8 +21,28 @@
 
   .footer-inner {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
+
+    @include media-breakpoint-up("lg") {
+      flex-direction: row;
+      align-items: center;
+
+      .links {
+        margin-right: auto;
+      }
+
+      div {
+        a {
+          margin: 0 0 0 rem(24);
+        }
+      }
+    }
+
+    a {
+      margin: 0;
+      display: inline-block;
+    }
 
     div {
       display: inline-flex;
@@ -32,12 +52,8 @@
       list-style: none;
 
       a {
-        margin-left: rem(24);
+        margin: rem(15) rem(8) 0;
       }
-    }
-
-    .links {
-      margin-right: auto;
     }
   }
 }

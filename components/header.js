@@ -1,7 +1,7 @@
 /**
  * External dependancies
  */
-import { FiAward, FiTwitter } from "react-icons/fi";
+import Link from "next/link";
 
 /**
  * Internal dependancies
@@ -38,29 +38,11 @@ const Header = () => {
 			<header className="site-header">
 				<Wrapper>
 					<div className="header-content">
-						<h1 className="site-title">Quote Maker</h1>
+						<h1 className="site-title"><Link href="/">Quote Maker</Link></h1>
 						<p className="site-description">
 							A simple javascript tool to generate & download the
 							quotation list with a nice design.
 						</p>
-						<a
-							type="button"
-							href="http://twitter.com/vijayhardaha"
-							className="btn btn-primary"
-							target="_blank"
-						>
-							<FiAward />
-							Made by Vijay Hardaha
-						</a>
-						<a
-							type="button"
-							href="http://twitter.com/intent/tweet?url=https://quotemaker.now.sh/&text=Generate%20quick%20%23quotes%20for%20clients%20with%20QuoteMaker%20by%20%40vijayhardaha&original_referer=https://quotemaker.now.sh/"
-							className="btn btn-info"
-							target="_blank"
-						>
-							<FiTwitter />
-							Share on Twitter
-						</a>
 					</div>
 				</Wrapper>
 			</header>

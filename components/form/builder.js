@@ -212,7 +212,7 @@ const Builder = () => {
 				</Form>
 			)}
 			<Mobile>
-				<div class="bg-primary text-white p-3 mb-5 rounded">
+				<div className="bg-primary text-white p-3 mb-5 rounded">
 					<p className="mb-0">
 						This tool does not support preview on small screen.
 						Please use a device with big screen to see the previews.
