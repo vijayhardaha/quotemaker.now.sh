@@ -1,13 +1,13 @@
+/* Import functions */
+@import "functions";
+
+/* Import boostrap functions and mixins */
+@import "~bootstrap/scss/functions";
 
 /* Import variables */
 @import "variables";
 
-/* Import boostrap functions and mixins */
-@import "~bootstrap/scss/functions";
 @import "~bootstrap/scss/variables";
-
-/* Import functions */
-@import "functions";
 
 @import "mixins";
 @import "~bootstrap/scss/mixins";

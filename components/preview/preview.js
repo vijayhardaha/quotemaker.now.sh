@@ -1,6 +1,7 @@
 /**
  * External dependancies
  */
+import { useEffect } from "react";
 
 /**
  * Internal dependancies
@@ -30,6 +31,10 @@ const Preview = ({
 	vatTotal,
 	total,
 }) => {
+	useEffect(() => {
+		window.scrollTo({ top: 0, behavior: "smooth" });
+	}, []);
+
 	return (
 		<div className="preview-box">
 			<div className="content" id="preview">

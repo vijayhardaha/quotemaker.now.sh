@@ -1,6 +1,7 @@
 /**
  * External dependancies
  */
+import { useEffect } from "react";
 import { Form } from "react-bootstrap";
 import { FiChevronDown } from "react-icons/fi";
 
@@ -19,6 +20,11 @@ const FilterBox = ({
 	setData,
 }) => {
 	const hourlyData = hourly ? "hourly" : "fixed";
+
+	useEffect(() => {
+		window.scrollTo({ top: 0, behavior: "smooth" });
+	}, []);
+
 	return (
 		<div className="filter-box">
 			<div className="dropdown-fields">

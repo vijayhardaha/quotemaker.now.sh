@@ -1,8 +1,4 @@
 /**
- * External dependancies
- */
-
-/**
  * Internal dependancies
  */
 import Meta from "./meta";
