@@ -1,146 +1,71 @@
-import Head from "next/head";
-import Link from "next/link";
+/**
+ * External dependancies
+ */
+import { FiAward, FiTwitter } from "react-icons/fi";
 
-import { Container, Row, Col } from "react-bootstrap";
+/**
+ * Internal dependancies
+ */
+import Wrapper from "./wrapper";
 
-export default function Header() {
+const Header = () => {
 	return (
 		<>
-			<Head>
-				<meta content="#ffffff" />
-				<meta charSet="UTF-8" />
-				<meta
-					name="viewport"
-					content="width=device-width, initial-scale=1.0"
-				/>
-				<title>Quote Maker</title>
-				<meta name="title" content="Quote Maker" />
-				<meta
-					name="description"
-					content="A simple javascript tool to generate & download the quotation list with a nice design."
-				/>
-				<meta
-					name="keywords"
-					content="quote,quotation,Quote.it,vijay hardaha,vijay,hardaha,tool,application,web application,javascript,tool,invoice generation,quote generator"
-				/>
-				<meta name="robots" content="index, follow" />
-				<meta
-					httpEquiv="Content-Type"
-					content="text/html; charset=utf-8"
-				/>
-				<meta name="language" content="English" />
-				<meta name="revisit-after" content="1 days" />
-				<meta name="author" content="Vijay Hardaha" />
-
-				<link rel="icon" href="/favicon.ico" />
-				<link
-					rel="apple-touch-icon"
-					sizes="180x180"
-					href="/apple-touch-icon.png"
-				/>
-				<link
-					rel="icon"
-					type="image/png"
-					sizes="32x32"
-					href="/favicon-32x32.png"
-				/>
-				<link
-					rel="icon"
-					type="image/png"
-					sizes="16x16"
-					href="/favicon-16x16.png"
-				/>
-				<link rel="manifest" href="/site.webmanifest" />
-
-				<meta property="og:type" content="website" />
-				<meta property="og:url" content="https://quotemaker.now.sh/" />
-				<meta property="og:title" content="Quote Maker" />
-				<meta
-					property="og:description"
-					content="A simple javascript tool to generate & download the quotation list with a nice design."
-				/>
-				<meta
-					property="og:image"
-					content="https://quotemaker.now.sh/thumbnail.png"
-				/>
-				<meta property="og:image:width" content="1200" />
-				<meta property="og:image:height" content="628" />
-
-				<meta property="twitter:card" content="summary_large_image" />
-				<meta
-					property="twitter:url"
-					content="https://quotemaker.now.sh/"
-				/>
-				<meta property="twitter:title" content="Quote Maker" />
-				<meta
-					property="twitter:description"
-					content="A simple javascript tool to generate & download the quotation list with a nice design."
-				/>
-				<meta
-					property="twitter:image"
-					content="https://quotemaker.now.sh/thumbnail.png"
-				/>
-
-				<link rel="preconnect" href="https://fonts.gstatic.com" />
-				<link
-					href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Open+Sans:wght@400;600;700&display=swap"
-					rel="stylesheet"
-					crossOrigin="anonymous"
-				/>
-
-				<meta
-					name="google-site-verification"
-					content="9T8_EMb6UiUZR6CeIs8Dd6687D-o48lwZEjb6cPPckg"
-				/>
-				<script
-					async
-					src="https://www.googletagmanager.com/gtag/js?id=UA-100426446-5"
-				></script>
-				<script
-					dangerouslySetInnerHTML={{
-						__html: `
-							window.dataLayer = window.dataLayer || [];
-							function gtag(){window.dataLayer.push(arguments)}
-							gtag("js", new Date());
-							gtag("config", "UA-100426446-5");
-					`,
-					}}
-				></script>
-			</Head>
-			<header className="header" id="header">
-				<Container>
-					<div className="waves">
-						<div className="wave-front"></div>
-						<div className="wave-back"></div>
+			<div className="waves">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 1440 320"
+					preserveAspectRatio="none"
+				>
+					<path
+						fill="currentColor"
+						fillOpacity="1"
+						d="M0,160L30,160C60,160,120,160,180,144C240,128,300,96,360,74.7C420,53,480,43,540,53.3C600,64,660,96,720,101.3C780,107,840,85,900,106.7C960,128,1020,192,1080,192C1140,192,1200,128,1260,112C1320,96,1380,128,1410,144L1440,160L1440,0L1410,0C1380,0,1320,0,1260,0C1200,0,1140,0,1080,0C1020,0,960,0,900,0C840,0,780,0,720,0C660,0,600,0,540,0C480,0,420,0,360,0C300,0,240,0,180,0C120,0,60,0,30,0L0,0Z"
+					></path>
+				</svg>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 1440 320"
+					preserveAspectRatio="none"
+				>
+					<path
+						fill="currentColor"
+						fillOpacity="1"
+						d="M0,64L30,64C60,64,120,64,180,74.7C240,85,300,107,360,138.7C420,171,480,213,540,218.7C600,224,660,192,720,181.3C780,171,840,181,900,181.3C960,181,1020,171,1080,192C1140,213,1200,267,1260,256C1320,245,1380,171,1410,133.3L1440,96L1440,0L1410,0C1380,0,1320,0,1260,0C1200,0,1140,0,1080,0C1020,0,960,0,900,0C840,0,780,0,720,0C660,0,600,0,540,0C480,0,420,0,360,0C300,0,240,0,180,0C120,0,60,0,30,0L0,0Z"
+					></path>
+				</svg>
+			</div>
+			<header className="site-header">
+				<Wrapper>
+					<div className="header-content">
+						<h1 className="site-title">Quote Maker</h1>
+						<p className="site-description">
+							A simple javascript tool to generate & download the
+							quotation list with a nice design.
+						</p>
+						<a
+							type="button"
+							href="http://twitter.com/vijayhardaha"
+							className="btn btn-primary"
+							target="_blank"
+						>
+							<FiAward />
+							Made by Vijay Hardaha
+						</a>
+						<a
+							type="button"
+							href="http://twitter.com/intent/tweet?url=https://quotemaker.now.sh/&text=Generate%20quick%20%23quotes%20for%20clients%20with%20QuoteMaker%20by%20%40vijayhardaha&original_referer=https://quotemaker.now.sh/"
+							className="btn btn-info"
+							target="_blank"
+						>
+							<FiTwitter />
+							Share on Twitter
+						</a>
 					</div>
-					<Row>
-						<Col xs={12} sm={12} md={12}>
-							<div className="header-content">
-								<h1 className="site-title">
-									<Link href="/">
-										<a>Quote Maker</a>
-									</Link>
-								</h1>
-
-								<p className="site-description">
-									A simple javascript tool to generate &
-									download the quotation list with a nice
-									design.
-								</p>
-								<a
-									type="button"
-									href="http://twitter.com/intent/tweet?url=https://quotemaker.now.sh/&text=Generate%20quick%20%23quotes%20for%20clients%20with%20QuoteMaker%20by%20%40vijayhardaha&original_referer=https://quotemaker.now.sh/"
-									className="btn btn-primary share-btn"
-									target="_blank"
-								>
-									Share on Twitter
-									<i className="icofont-twitter"></i>
-								</a>
-							</div>
-						</Col>
-					</Row>
-				</Container>
+				</Wrapper>
 			</header>
 		</>
 	);
-}
+};
+
+export default Header;

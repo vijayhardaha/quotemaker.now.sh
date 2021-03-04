@@ -1,18 +1,32 @@
+body {
+  overflow-x: hidden;
+}
+
+.application {
+  display: block;
+  margin: rem(50) auto;
+}
+
 .checkbox-fields {
   .form-check {
     display: inline-flex;
     align-items: center;
-    margin-bottom: em(20);
-    padding-right: em(20);
     flex-wrap: nowrap;
+    margin-bottom: em(20);
+    padding-right: rem(35);
+    padding-left: 0;
 
     label {
       position: relative;
       display: inline-flex;
+      align-items: center;
       margin: 0;
       cursor: pointer;
       font-weight: 400;
-      line-height: 1.3;
+
+      span {
+        line-height: 1;
+      }
 
       span:first-child {
         margin-right: rem(8);
@@ -20,7 +34,6 @@
 
       input,
       svg {
-        display: block;
         width: $checkbox-size;
         height: $checkbox-size;
       }
@@ -35,16 +48,16 @@
         border-radius: $input-border-radius;
         outline: none;
         background: $white;
-        box-shadow: inset 0 0 0 $input-border-width $gray;
+        box-shadow: inset 0 0 0 $input-border-width $gray-200;
         appearance: none;
 
         &:hover {
-          box-shadow: inset 0 0 0 $input-border-width darken($gray, 5%);
+          box-shadow: inset 0 0 0 $input-border-width darken($gray-200, 5%);
         }
 
         &:checked {
           transition-delay: 0.4s;
-          box-shadow: inset 0 0 0 $input-border-width $primary-color;
+          box-shadow: inset 0 0 0 $input-border-width $primary;
 
           &+svg {
             stroke-dasharray: 16.1 86.12;
@@ -66,7 +79,7 @@
         stroke-width: 2px;
         stroke-linecap: round;
         stroke-linejoin: round;
-        stroke: $primary-color;
+        stroke: $primary;
         stroke-dasharray: 86.12;
         stroke-dashoffset: 86.12;
       }
@@ -74,23 +87,18 @@
   }
 }
 
+.dropdown-fields {
+  .form-group {
+    margin-bottom: em(20);
+  }
+}
+
 .form-control {
   height: em(46);
   padding: em(10) em(14);
   transition: none;
-  color: $input-text-color;
-  border: $input-border-width solid transparent;
-  border-radius: $input-border-radius;
   outline: 0;
-  background: $input-bg-color;
   box-shadow: none;
-  font-size: em(16);
-
-  &:focus {
-    border-color: rgba($primary-color, 0.5);
-    background: $white;
-    box-shadow: 0 0 0 0.25em rgba($primary-color, 0.1);
-  }
 
   &::-webkit-input-placeholder {
     /* Edge */
@@ -118,7 +126,7 @@ select.form-control {
 
 .form-group {
   width: 100%;
-  margin-bottom: 1.5em;
+  margin-bottom: rem(40);
 }
 
 label[for] {
@@ -127,34 +135,65 @@ label[for] {
 }
 
 .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: em(10) em(20);
-  border-radius: $btn-border-radius;
   outline: 0;
-  box-shadow: none;
-  font-size: em(18);
-  font-weight: 400;
+  font-weight: 600;
 
-  &:focus,
-  &:active:focus,
-  &.active:focus,
-  &.focus,
-  &:active.focus,
-  &.active.focus {
-    outline: 0;
-    box-shadow: none;
-  }
-
-  i {
+  svg {
     margin-right: em(8);
   }
 
-  &.btn-primary {
-    @include button-variant($primary-btn-color, $primary-btn-bg-color, $primary-btn-border-color);
+  &:focus,
+  &.focus {
+    outline: 0;
+    box-shadow: none;
+  }
+}
+
+.form-actions {
+  text-align: center;
+
+  .btn {
+    margin: 0 rem(8);
+  }
+}
+
+.modal {
+  position: fixed;
+  z-index: 1050;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba($black, 0.4);
+
+  .modal-content {
+    width: rem(500);
+    max-width: 100%;
+    padding: rem(30);
+    text-align: center;
+    border-radius: $border-radius;
+    background: $white;
   }
 
-  &.btn-secondary {
-    @include button-variant($secondary-btn-color, $secondary-btn-bg-color, $secondary-btn-border-color);
+  .modal-heading {
+    margin-bottom: rem(25);
+    font-weight: 700;
   }
 
-  @include button-variant($btn-color, $btn-bg-color, $btn-border-color);
+  .modal-actions {
+    .btn {
+      min-width: rem(150);
+      margin: rem(15) rem(10) 0;
+    }
+  }
 }

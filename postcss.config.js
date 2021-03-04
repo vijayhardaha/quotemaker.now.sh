@@ -12,29 +12,6 @@ module.exports = {
 					"custom-properties": false,
 				},
 			},
-		],
-		[
-			"@fullhuman/postcss-purgecss",
-			{
-				content: [
-					"./node_modules/react-bootstrap/**/*.js",
-					"./pages/**/*.{js,jsx,ts,tsx}",
-					"./components/**/*.{js,jsx,ts,tsx}",
-				],
-				safelist: [
-					"has-qty",
-					"has-description",
-					"has-time",
-					"has-discount",
-					"has-vat",
-					"has-custom",
-					"btn-secondary",
-					"btn-default",
-					/^col-/
-				],
-				defaultExtractor: (content) =>
-					content.match(/[\w-/:]+(?<!:)/g) || [],
-			},
-		],
+		]
 	],
 };

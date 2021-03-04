@@ -1,100 +1,71 @@
 .items {
-  display: block;
   width: 100%;
+  display: block;
   margin: 0 0 rem(15);
 
-  .item-col {
-
-    &.name,
-    &.description {
+  .item-col,
+  .item-row {
+    &.title {
       flex-grow: 1;
     }
 
     &.qty {
-      width: rem(40);
-      flex: 0 0 rem(40);
-    }
-
-    &.cost,
-    &.time {
       width: rem(70);
       flex: 0 0 rem(70);
     }
 
-    &.amount {
+    &.price,
+    &.total {
       width: rem(100);
       flex: 0 0 rem(100);
-    }
-
-    &.description,
-    &.time,
-    &.qty,
-    &.cost {
-      display: none;
     }
   }
 
   .item-group {
     display: flex;
     flex-direction: row;
-    flex-grow: 1;
     flex-wrap: wrap;
+    text-align: center;
+
+    &>* {
+      margin-left: rem(8);
+    }
+
+    .form-control {
+      text-align: center;
+    }
+  }
+
+  .item-remove {
+    width: rem(46);
   }
 
   .items-head {
     display: flex;
-    align-items: stretch;
     flex-direction: row;
+    align-items: stretch;
+    flex-wrap: nowrap;
     margin-bottom: 1rem;
-    color: $text-color;
+    color: $body-color;
     border-bottom: 1px solid $input-border-color;
     font-weight: 600;
-    flex-wrap: nowrap;
 
     .item-col {
-      padding: rem(5);
-      text-align: center;
-
-      &.name {
-        padding-left: 0;
-        text-align: left;
-      }
-
-      @include breakpoint-xs-max {
-        &:not(.amount) {
-          flex-grow: 1;
-        }
-
-        &.name {
-          width: 100%;
-          text-align: center;
-
-          .has-qty & {
-            border-bottom: 1px solid $input-border-color;
-          }
-        }
-
-        &.amount {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          border-left: 1px solid $input-border-color;
-        }
-      }
+      padding: rem(6) 0;
     }
   }
 
   .item-row {
     position: relative;
     display: flex;
-    align-items: stretch;
     flex-direction: row;
-    margin-bottom: 1rem;
-    padding-top: rem(28);
+    align-items: stretch;
     flex-wrap: nowrap;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid $input-border-color;
 
     .form-control {
-      border-width: 0;
       background: transparent;
 
       &:focus {
@@ -102,111 +73,96 @@
       }
     }
 
-    .item-col {
-      border: 1px solid $input-border-color;
-
-      &.description {
-        border-top-width: 0;
+    .total {
+      .form-control {
+        background: $gray-100;
       }
+    }
 
-      &.qty,
-      &.time,
-      &.cost,
-      &.amount {
-        .form-control {
-          padding: 0.625em 0.25em;
-          text-align: center;
-        }
-      }
-
-      &.amount {
-        border-left-width: 0;
-        background: $dim-light;
-
-        .form-control {
-          height: 100%;
-        }
-      }
-
-      @include breakpoint-sm-min {
-        &.description {
-          width: 100%;
-          order: 5;
-          flex: 0 0 100%;
-        }
-
-        &.qty,
-        &.time,
-        &.cost,
-        &.amount {
-          border-left-width: 0;
-        }
-      }
-
-      @include breakpoint-xs-max {
-        &:not(.amount) {
-          flex-grow: 1;
-        }
-
-        &.name {
-          .has-qty & {
-            border-bottom-width: 0;
-          }
-        }
-
-        &.description {
-          .has-qty & {
-            border-top-width: 1px;
-            border-bottom-width: 0;
-          }
-
-          .has-time & {
-            border-bottom-width: 0;
-          }
-        }
-
-        &.description,
-        &.name {
-          width: 100%;
-          flex: 0 0 100%;
-        }
-
-        &.time,
-        &.cost {
-          border-left-width: 0;
-        }
-
-        &.time {
-          form:not(.has-qty) & {
-            border-left-width: 1px;
-          }
-        }
+    .item-group {
+      .form-control {
+        padding-right: rem(2);
+        padding-left: rem(2);
+        text-align: center;
       }
     }
 
     .item-remove {
-      position: absolute;
-      top: 0;
-      right: 0;
-      display: flex;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: rem(100);
-      height: rem(28);
+      padding: 0;
       cursor: pointer;
-      text-decoration: none;
-      color: $white;
       outline: 0;
-      background: $primary-color;
-      font-size: em(14);
-      font-weight: 400;
 
-      &:hover {
-        background: darken($primary-color, 10%);
+      svg {
+        width: rem(30);
+        height: rem(30);
+        margin: 0;
+      }
+    }
+
+    &:hover {
+      .item-remove {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down("sm") {
+  .items {
+    .items-head {
+      &.hourly {
+        flex-direction: column;
+
+        .item-group {
+          border-top: 1px solid $input-border-color;
+        }
+
+        .item-col {
+          text-align: left;
+
+          &.title {
+            text-align: center;
+          }
+        }
       }
 
-      i {
-        margin-right: em(5);
+      .item-remove {
+        width: 0;
+      }
+
+      .item-col {
+        text-align: left;
+
+        &.total {
+          flex: 1;
+          text-align: right;
+        }
+      }
+    }
+
+    .item-row {
+      flex-direction: column;
+
+      .item-col {
+        &.title {
+          margin-bottom: rem(8);
+        }
+
+        &.total {
+          flex: 1;
+        }
+      }
+
+      .item-group {
+        .item-col {
+          &:first-of-type {
+            margin-left: 0;
+          }
+        }
       }
     }
   }
@@ -218,7 +174,7 @@
 
     tr {
       td {
-        padding: em(12) em(16);
+        padding: rem(12) rem(16);
         vertical-align: middle;
       }
 
@@ -228,13 +184,13 @@
       }
 
       td:last-child {
-        width: rem(100);
+        width: rem(164);
         text-align: center;
       }
 
       &.total {
         td {
-          background: $dim-light;
+          background: $gray-100;
         }
       }
     }
@@ -256,6 +212,7 @@
     flex-wrap: nowrap;
 
     >span {
+      display: block;
       margin-left: rem(8);
 
       &:first-child {
@@ -263,54 +220,9 @@
       }
 
       .form-control {
-        min-width: em(50);
-        height: em(34);
-        padding: 0.125em 0.625em;
+        width: auto;
+        max-width: rem(120);
       }
-    }
-  }
-}
-
-.discount-row,
-.vat-row,
-.custom-row,
-.total-time {
-  display: none;
-}
-
-.has-discount .discount-row,
-.has-vat .vat-row,
-.has-custom .custom-row,
-.has-time .total-time {
-  display: table-row;
-}
-
-.has-qty .items {
-  .item-col {
-
-    &.qty,
-    &.cost {
-      display: block;
-    }
-
-    &.amount {
-      pointer-events: none;
-    }
-  }
-}
-
-.has-description .items {
-  .item-col {
-    &.description {
-      display: block;
-    }
-  }
-}
-
-.has-time .items {
-  .item-col {
-    &.time {
-      display: block;
     }
   }
 }

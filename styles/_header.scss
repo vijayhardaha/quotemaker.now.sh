@@ -1,84 +1,65 @@
-#header {
-  padding: 50px 0;
+.waves {
+  color: $primary;
+
+  svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: rem(500);
+
+
+
+    @include media-breakpoint-down("sm") {
+      width: 80rem;
+      height: 40rem;
+    }
+
+    @include media-breakpoint-down("xs") {
+      width: 50rem;
+      height: 30rem;
+    }
+
+    &:first-of-type {
+      opacity: 0.3;
+    }
+
+    &:last-of-type {
+      opacity: 0.2;
+    }
+  }
+}
+
+.site-header {
+  padding: rem(120) 0 rem(70);
+
+  @include media-breakpoint-down("xs") {
+    padding: em(35) 0 0;
+    text-align: center;
+  }
 
   .header-content {
-    display: block;
     width: rem(992);
     max-width: 100%;
+    display: block;
     margin: 0 auto;
     text-align: center;
   }
 
-  .waves {
-    position: absolute;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-    width: 100%;
-    height: rem(420);
-    pointer-events: none;
-
-    div {
-      position: absolute;
-      display: block;
-      width: rem(3000);
-      content: "";
-      background-size: contain;
-
-      &.wave-front {
-        z-index: -1;
-        top: 0;
-        left: 0;
-        opacity: 0.6;
-        height: rem(337);
-        animation: loopFront 20s linear infinite;
-        background-image: url(../public/svg/wave-front.svg);
-        background-repeat: repeat-x;
-      }
-
-      &.wave-back {
-        z-index: -2;
-        top: rem(-100);
-        left: 0;
-        opacity: 0.4;
-        height: rem(493);
-        animation: loopBack 20s linear infinite;
-        background-image: url(../public/svg/wave-back.svg);
-        background-repeat: repeat-x;
-      }
-
-      @keyframes loopFront {
-        0% {
-          background-position: 0 0;
-        }
-
-        100% {
-          background-position: rem(2000) 0;
-        }
-      }
-
-      @keyframes loopBack {
-        0% {
-          background-position: 0 0;
-        }
-
-        100% {
-          background-position: rem(-2000) 0;
-        }
-      }
-    }
-  }
-
   .site-title {
-    display: block;
     max-width: 100%;
+    display: block;
     margin: 0 0 rem(30);
     text-transform: uppercase;
     color: $white;
+    text-shadow: 2px 2px $primary;
     font-family: $font-family-heading;
     font-size: em(48);
     font-weight: 900;
-    line-height: 1;
+
+    @include media-breakpoint-up("md") {
+      font-size: em(64);
+    }
 
     a {
       text-decoration: none;
@@ -89,29 +70,20 @@
         color: inherit;
       }
     }
-
-    @include breakpoint-sm-min {
-      font-size: em(64);
-    }
   }
 
   .site-description {
-    color: $white;
+    margin-bottom: rem(50);
+    color: $dark;
+    text-shadow: 0 0 rgba($black, 0.3);
     font-size: em(18);
-    font-weight: 400;
   }
 
-  .share-btn {
-    margin-top: rem(30);
+  a {
+    margin: rem(15) rem(8);
 
-    i {
-      margin: 0;
-      margin-left: rem(8);
+    svg {
+      margin-right: rem(8);
     }
-  }
-
-  @include breakpoint-xs-max {
-    padding: em(35) 0 0;
-    text-align: center;
   }
 }

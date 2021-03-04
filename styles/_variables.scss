@@ -1,49 +1,36 @@
-/* Define colors configs */
-$black: #000000 !default;
-$dim-light: #f5f7fa !default;
-$gray: #e3e7f1 !default;
-$light: #c6cbef !default;
-$white: #ffffff !default;
-
-/* Body configs */
-$bg-color: #ffffff !default;
-$font-family-heading: "Montserrat", sans-serif !default;
-$font-family-base: "Open Sans", sans-serif !default;
-$font-size-base: 1em;
+$white: #fff;
+$font-family-base: Montserrat, "sans-sarif";
+$font-family-heading: $font-family-base;
 $font-weight-base: 400;
 $letter-spacing-base: 0.8px;
-$line-height-base: 1.5em;
-$primary-color: #00bcd4 !default;
-$text-color: #545454 !default;
+$line-height-base: 1.8;
 
-/* Buttons configs */
-$btn-bg-color: #46494c !default;
-$btn-border-color: #46494c !default;
-$btn-color: $white !default;
-$primary-btn-bg-color: $primary-color !default;
-$primary-btn-border-color: $primary-color !default;
-$primary-btn-color: $white !default;
-$secondary-btn-bg-color: #4c5c68 !default;
-$secondary-btn-border-color: #4c5c68 !default;
-$secondary-btn-color: $white !default;
-$btn-border-width: 1px !default;
-$btn-border-radius: 0.25rem !default;
+$body-color: #545454;
+$primary: #fbb807;
+$secondary: #4c5c68;
+$info: #1da1f2;
+$dark: #232323;
+$danger: #e0245e;
 
-/* Form inputs configs */
-$input-bg-color: #f5f7fa !default;
-$input-border-color: #e3e7f1 !default;
-$input-placeholder-color: #aaaaaa !default;
-$input-text-color: $text-color !default;
-$input-border-width: 2px !default;
-$input-border-radius: 0.25rem !default;
+// Form inputs configs
+$input-border-color: #f5f7fa;
+$input-placeholder-color: #aaaaaa;
+$input-color: $body-color;
+$input-focus-border-color: rgba($primary, 0.5);
+$input-focus-bg: $white;
+$input-focus-box-shadow: 0 0 0 0.25em rgba($primary, 0.1);
 
-/* Footer configs */
-$footer-bg-color: #4c5c68 !default;
-$footer-text-color: $white !default;
-$footer-link-color: $white !default;
-$footer-link-hover-color: $primary-color !default;
+// Button config
+$btn-box-shadow: none;
+$btn-font-size: rem(15);
 
-/* Media queries breakpoints */
+// Footer configs
+$footer-bg-color: #4c5c68;
+$footer-text-color: $white;
+$footer-link-color: $white;
+$footer-link-hover-color: $primary;
+
+// Media queries breakpoints
 // Small screen / tablet
 $screen-sm-min: 768px;
 // Medium screen / desktop
@@ -56,4 +43,4 @@ $screen-xs-max: ($screen-sm-min - 1);
 $screen-sm-max: ($screen-md-min - 1);
 $screen-md-max: ($screen-lg-min - 1);
 
-$checkbox-size: 22px !default;
+$checkbox-size: rem(22);
