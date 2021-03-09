@@ -44,18 +44,22 @@
 .preview-terms {
   width: 100%;
   display: block;
-  margin-top: rem(16);
+  margin-top: rem(18);
 
   h4 {
     display: block;
     color: $primary;
     font-weight: 700;
   }
+
+  &+.preview-notes {
+    margin-top: rem(35);
+  }
 }
 
 .preview-notes {
   display: block;
-  margin-top: rem(50);
+  margin-top: rem(18);
 
   h4 {
     display: block;

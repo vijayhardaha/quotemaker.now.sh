@@ -27,7 +27,6 @@ const Items = ({ hourly, items, setData }) => {
 						onChange={(e) => {
 							const _items = [...items];
 							_items[i].title = e.target.value;
-							console.log(_items);
 							setData({ items: _items });
 						}}
 					/>

@@ -60,8 +60,6 @@ const Builder = () => {
 		const s = items
 			.map((item) => item.total)
 			.reduce((a, b) => float(a) + float(b), 0);
-
-		console.log(s);
 		// VatTotal
 		let v = 0;
 		// Discount Total
