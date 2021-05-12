@@ -24,7 +24,7 @@
 		"classnames": "^2.2.6",
 		"dom-to-image": "^2.6.0",
 		"file-saver": "^2.0.5",
-		"postcss": "^8.2.7",
+		"postcss": "^8.2.10",
 		"postcss-combine-media-query": "^1.0.1",
 		"postcss-flexbugs-fixes": "^5.0.2",
 		"postcss-preset-env": "^6.7.0",
