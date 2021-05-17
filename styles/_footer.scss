@@ -1,7 +1,7 @@
 .site-footer {
-  padding: rem(80) 0 rem(50) 0;
-  background: #fbfbfb;
-  background: linear-gradient(0deg, #fbfbfb 0%, #fff 100%);
+  padding: 5rem 0 3.125rem 0;
+  background: $footer-bg-color;
+  background: linear-gradient(0deg, $footer-bg-color 0%, $white 100%);
 
   p,
   a {
@@ -10,8 +10,8 @@
     text-decoration: none;
     letter-spacing: 0.4px;
     text-transform: uppercase;
-    color: #ababab;
-    font-size: rem(12);
+    color: $gray-500;
+    font-size: 0.825rem;
     font-weight: 500;
   }
 
@@ -34,14 +34,14 @@
 
       div {
         a {
-          margin: 0 0 0 rem(24);
+          margin: 0 0 0 1.5rem;
         }
       }
     }
 
     a {
-      margin: 0;
       display: inline-block;
+      margin: 0;
     }
 
     div {
@@ -52,7 +52,7 @@
       list-style: none;
 
       a {
-        margin: rem(15) rem(8) 0;
+        margin: 1rem .5rem 0;
       }
     }
   }

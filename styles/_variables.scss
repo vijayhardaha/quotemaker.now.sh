@@ -1,46 +1,57 @@
-$white: #fff;
-$font-family-base: Montserrat, "sans-sarif";
-$font-family-heading: $font-family-base;
-$font-weight-base: 400;
-$letter-spacing-base: 0.8px;
-$line-height-base: 1.8;
+$white: #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black: #000 !default;
 
-$body-color: #545454;
-$primary: #fbb807;
-$secondary: #4c5c68;
-$info: #1da1f2;
-$dark: #232323;
-$danger: #e0245e;
+$primary: #fbb807 !default;
+$secondary: #4c5c68 !default;
+$info: #1da1f2 !default;
+$dark: #232323 !default;
+$danger: #e0245e !default;
+
+$body-bg: $white !default;
+$body-color: #545454 !default;
+
+$font-size-base: 1rem !default; // Assumes the browser default, typically `16px`
+$font-size-lg: $font-size-base * 1.25 !default;
+$font-size-sm: $font-size-base * 0.875 !default;
+
+$font-weight-lighter: 100 !default;
+$font-weight-light: 300 !default;
+$font-weight-normal: 400 !default;
+$font-weight-medium: 500 !default;
+$font-weight-semi-bold: 600 !default;
+$font-weight-bold: 700 !default;
+$font-weight-bolder: 900 !default;
+
+$font-weight-base: $font-weight-normal !default;
+$line-height-base: 1.6 !default;
+$letter-spacing-base: 0.8px !default;
+
+$font-family-sans-serif: 'Mulish', sans-serif !default;
 
 // Form inputs configs
-$input-border-color: #f5f7fa;
-$input-placeholder-color: #aaaaaa;
-$input-color: $body-color;
-$input-focus-border-color: rgba($primary, 0.5);
-$input-focus-bg: $white;
-$input-focus-box-shadow: 0 0 0 0.25em rgba($primary, 0.1);
+$input-border-color: $gray-300 !default;
+$input-placeholder-color: #aaaaaa !default;
+$input-color: $body-color !default;
+$input-focus-border-color: rgba($primary, 0.5) !default;
+$input-focus-bg: $white !default;
+$input-focus-box-shadow: 0 0 0 0.25rem rgba($primary, 0.1) !default;
 
 // Button config
-$btn-box-shadow: none;
-$btn-font-size: rem(15);
+$btn-box-shadow: none !default;
 
 // Footer configs
-$footer-bg-color: #4c5c68;
-$footer-text-color: $white;
-$footer-link-color: $white;
-$footer-link-hover-color: $primary;
+$footer-bg-color: #fbfbfb !default;
+$footer-text-color: $white !default;
+$footer-link-color: $white !default;
+$footer-link-hover-color: $primary !default;
 
-// Media queries breakpoints
-// Small screen / tablet
-$screen-sm-min: 768px;
-// Medium screen / desktop
-$screen-md-min: 992px;
-// Large screen / wide desktop
-$screen-lg-min: 1200px;
-
-// So media queries don't overlap when required, provide a maximum
-$screen-xs-max: ($screen-sm-min - 1);
-$screen-sm-max: ($screen-md-min - 1);
-$screen-md-max: ($screen-lg-min - 1);
-
-$checkbox-size: rem(22);
+$checkbox-size: 1.375rem !default;

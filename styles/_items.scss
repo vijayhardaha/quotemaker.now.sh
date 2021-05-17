@@ -1,7 +1,7 @@
 .items {
   width: 100%;
   display: block;
-  margin: 0 0 rem(15);
+  margin: 0 0 $font-size-base;
 
   .item-col,
   .item-row {
@@ -10,14 +10,14 @@
     }
 
     &.qty {
-      width: rem(70);
-      flex: 0 0 rem(70);
+      width: 4.375rem;
+      flex: 0 0 4.375rem;
     }
 
     &.price,
     &.total {
-      width: rem(100);
-      flex: 0 0 rem(100);
+      width: 8rem;
+      flex: 0 0 8rem;
     }
   }
 
@@ -28,7 +28,7 @@
     text-align: center;
 
     &>* {
-      margin-left: rem(8);
+      margin-left: .5rem;
     }
 
     .form-control {
@@ -37,7 +37,7 @@
   }
 
   .item-remove {
-    width: rem(46);
+    width: 2.875rem;
   }
 
   .items-head {
@@ -48,10 +48,10 @@
     margin-bottom: 1rem;
     color: $body-color;
     border-bottom: 1px solid $input-border-color;
-    font-weight: 600;
+    font-weight: $font-weight-medium;
 
     .item-col {
-      padding: rem(6) 0;
+      padding: 0.375rem 0;
     }
   }
 
@@ -81,8 +81,8 @@
 
     .item-group {
       .form-control {
-        padding-right: rem(2);
-        padding-left: rem(2);
+        padding-right: 0.125rem;
+        padding-left: 0.125rem;
         text-align: center;
       }
     }
@@ -96,8 +96,8 @@
       outline: 0;
 
       svg {
-        width: rem(30);
-        height: rem(30);
+        width: 1.25rem;
+        height: 1.25rem;
         margin: 0;
       }
     }
@@ -149,7 +149,7 @@
 
       .item-col {
         &.title {
-          margin-bottom: rem(8);
+          margin-bottom: .5rem;
         }
 
         &.total {
@@ -174,17 +174,17 @@
 
     tr {
       td {
-        padding: rem(12) rem(16);
+        padding: 0.825rem 1rem;
         vertical-align: middle;
       }
 
       td:first-child {
         text-align: right;
-        font-weight: 600;
+        font-weight: $font-weight-medium;
       }
 
       td:last-child {
-        width: rem(164);
+        width: 10.25rem;
         text-align: center;
       }
 
@@ -213,7 +213,7 @@
 
     >span {
       display: block;
-      margin-left: rem(8);
+      margin-left: .5rem;
 
       &:first-child {
         margin-left: 0;
@@ -221,7 +221,7 @@
 
       .form-control {
         width: auto;
-        max-width: rem(120);
+        max-width: 7.25rem;
       }
     }
   }

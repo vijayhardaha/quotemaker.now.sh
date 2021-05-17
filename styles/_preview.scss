@@ -1,11 +1,10 @@
 .preview-box {
   .content {
-    margin-bottom: rem(50);
-    padding: rem(50) rem(30);
+    margin-bottom: 3.125rem;
+    padding: 3.125rem 2rem;
     border-radius: $border-radius;
     background: $white;
     box-shadow: rgba($black, 0.01) 0px 1px 0px, rgba($black, 0.025) 0px 0px 8px, rgba($black, 0.075) 0px 20px 30px;
-    font-family: $font-family-heading;
   }
 
   .btn-group {
@@ -19,7 +18,7 @@
 
     .btn {
       &:not(:first-of-type) {
-        margin-left: rem(15);
+        margin-left: 1rem;
       }
 
       &:last-of-type {
@@ -32,7 +31,7 @@
 .preview-header {
   width: 100%;
   display: block;
-  margin-bottom: 2em;
+  margin-bottom: 2rem;
 
   .project-title {
     display: block;
@@ -44,7 +43,7 @@
 .preview-terms {
   width: 100%;
   display: block;
-  margin-top: rem(18);
+  margin-top: 1.125rem;
 
   h4 {
     display: block;
@@ -53,13 +52,13 @@
   }
 
   &+.preview-notes {
-    margin-top: rem(35);
+    margin-top: 2.125rem;
   }
 }
 
 .preview-notes {
   display: block;
-  margin-top: rem(18);
+  margin-top: 1.125rem;
 
   h4 {
     display: block;
@@ -83,7 +82,7 @@
 }
 
 .preview-summary {
-  max-width: rem(450);
+  max-width: 28.125rem;
 
   table {
     tr {
@@ -105,15 +104,13 @@
         &::before {
           background: #eaeaea;
         }
-
-
       }
     }
 
     th,
     td {
       &.qty {
-        width: rem(60);
+        width: 3.625rem;
         padding: 0;
       }
 
@@ -123,7 +120,7 @@
 
       &.price,
       &.total {
-        width: rem(140);
+        width: 8.75rem;
         padding: 0;
       }
     }
@@ -140,7 +137,7 @@
       display: flex;
       align-items: center;
       flex-wrap: nowrap;
-      margin: rem(10) 0;
+      margin: .75rem 0;
 
       &::before {
         position: absolute;
@@ -150,7 +147,7 @@
         width: 100%;
         height: 100%;
         content: "";
-        border-radius: rem(100);
+        border-radius: 8rem;
         background: $white;
       }
 
@@ -158,14 +155,14 @@
       td {
         position: relative;
         z-index: 2;
-        padding: rem(12) rem(20);
+        padding: 0.5rem 1.125rem;
 
         &:first-child {
-          padding-left: rem(30);
+          padding-left: 2rem;
         }
 
         &:last-child {
-          padding-right: rem(30);
+          padding-right: 2rem;
         }
       }
 
@@ -192,13 +189,12 @@
 }
 
 .branding {
-  margin: rem(80) 0 0;
+  margin: 5rem 0 0;
   text-align: center;
   letter-spacing: 0.5px;
   color: $gray-600;
-  font-size: em(14);
 
-  a {
+  font-size: 0.825rem a {
     text-decoration: none;
     pointer-events: none;
     color: $primary;

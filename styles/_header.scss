@@ -6,9 +6,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: rem(500);
-
-
+    height: 31.25rem;
 
     @include media-breakpoint-down("sm") {
       width: 80rem;
@@ -31,15 +29,15 @@
 }
 
 .site-header {
-  padding: rem(120) 0 rem(70);
+  padding: 7.25rem 0 4.375rem;
 
   @include media-breakpoint-down("xs") {
-    padding: em(35) 0 0;
+    padding: 2.125rem 0 0;
     text-align: center;
   }
 
   .header-content {
-    width: rem(992);
+    width: 62rem;
     max-width: 100%;
     display: block;
     margin: 0 auto;
@@ -49,16 +47,16 @@
   .site-title {
     max-width: 100%;
     display: block;
-    margin: 0 0 rem(30);
+    margin: 0 0 2rem;
     text-transform: uppercase;
     color: $white;
     text-shadow: 2px 2px $primary;
-    font-family: $font-family-heading;
-    font-size: em(48);
+    font-family: 'Teko', sans-serif;
+    font-size: 6rem;
     font-weight: 900;
 
     @include media-breakpoint-up("md") {
-      font-size: em(64);
+      font-size: 8rem;
     }
 
     a {
@@ -73,9 +71,9 @@
   }
 
   .site-description {
-    margin-bottom: rem(50);
+    margin-bottom: 3.125rem;
     color: $dark;
     text-shadow: 0 0 rgba($black, 0.3);
-    font-size: em(18);
+    font-size: 1.125rem;
   }
 }

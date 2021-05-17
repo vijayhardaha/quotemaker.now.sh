@@ -6,9 +6,14 @@ body {
   overflow-x: hidden;
 }
 
+b,
+strong {
+  font-weight: $font-weight-semi-bold;
+}
+
 .application {
   display: block;
-  margin: rem(50) auto;
+  margin: 3.125rem auto;
 }
 
 .checkbox-fields {
@@ -16,8 +21,8 @@ body {
     display: inline-flex;
     align-items: center;
     flex-wrap: nowrap;
-    margin-bottom: em(20);
-    padding-right: rem(35);
+    margin-bottom: 1.25rem;
+    padding-right: 2.125rem;
     padding-left: 0;
 
     label {
@@ -33,7 +38,7 @@ body {
       }
 
       span:first-child {
-        margin-right: rem(8);
+        margin-right: .5rem;
       }
 
       input,
@@ -93,13 +98,13 @@ body {
 
 .dropdown-fields {
   .form-group {
-    margin-bottom: em(20);
+    margin-bottom: 1.25rem;
   }
 }
 
 .form-control {
-  height: em(46);
-  padding: em(10) em(14);
+  height: 2.875rem;
+  padding: 0.625rem 0.825rem;
   transition: none;
   outline: 0;
   box-shadow: none;
@@ -120,7 +125,7 @@ body {
 }
 
 textarea {
-  min-height: em(55);
+  min-height: 3.5rem;
   resize: vertical;
 }
 
@@ -130,24 +135,23 @@ select.form-control {
 
 .form-group {
   width: 100%;
-  margin-bottom: rem(40);
+  margin-bottom: 1.5rem;
 }
 
 label[for] {
   cursor: pointer;
-  font-weight: 600;
+  font-weight: $font-weight-medium;
 }
 
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: em(10) em(20);
+  padding: 0.425rem 1.125rem;
   outline: 0;
-  font-weight: 600;
 
   svg {
-    margin-right: em(8);
+    margin-right: 0.5rem;
   }
 
   &:focus,
@@ -161,7 +165,7 @@ label[for] {
   text-align: center;
 
   .btn {
-    margin: 0 rem(8);
+    margin: 0 .5rem;
   }
 }
 
@@ -181,23 +185,23 @@ label[for] {
   background-color: rgba($black, 0.4);
 
   .modal-content {
-    width: rem(500);
+    width: 31.25rem;
     max-width: 100%;
-    padding: rem(30);
+    padding: 2rem;
     text-align: center;
     border-radius: $border-radius;
     background: $white;
   }
 
   .modal-heading {
-    margin-bottom: rem(25);
+    margin-bottom: 1.5rem;
     font-weight: 700;
   }
 
   .modal-actions {
     .btn {
-      min-width: rem(150);
-      margin: rem(15) rem(10) 0;
+      min-width: 9.25rem;
+      margin: $font-size-base .75rem 0;
     }
   }
 }
