@@ -5,19 +5,21 @@
 
   .item-col,
   .item-row {
+    flex-shrink: 0;
+
     &.title {
       flex-grow: 1;
     }
 
     &.qty {
-      width: 4.375rem;
-      flex: 0 0 4.375rem;
+      width: 3.25rem;
+      flex: 0 0 auto;
     }
 
     &.price,
     &.total {
-      width: 8rem;
-      flex: 0 0 8rem;
+      width: 6rem;
+      flex: 0 0 auto;
     }
   }
 
@@ -29,10 +31,6 @@
 
     &>* {
       margin-left: .5rem;
-    }
-
-    .form-control {
-      text-align: center;
     }
   }
 
@@ -71,19 +69,18 @@
       &:focus {
         box-shadow: none;
       }
-    }
 
-    .total {
-      .form-control {
+      &:disabled {
         background: $gray-100;
+		cursor: not-allowed;
       }
     }
 
     .item-group {
       .form-control {
-        padding-right: 0.125rem;
-        padding-left: 0.125rem;
-        text-align: center;
+        padding-right: 0.625rem;
+        padding-left: 0.625rem;
+        text-align: right;
       }
     }
 

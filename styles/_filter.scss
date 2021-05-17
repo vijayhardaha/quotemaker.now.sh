@@ -13,49 +13,143 @@
     top: 0;
   }
 
-  .dropdown-fields {
+  @include media-breakpoint-up("lg") {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row-reverse;
     justify-content: space-between;
+    flex-wrap: nowrap;
+    align-items: center;
 
-    @include media-breakpoint-up("md") {
-      flex-direction: row;
-
-      .form-group {
-        width: 50%;
-
-        &:first-child {
-          margin-right: 0.5em;
-        }
-
-        &:last-child {
-          margin-left: 0.5em;
-        }
-      }
+    .dropdown-fields {
+      flex: 1;
     }
+  }
+}
 
-    .form-group {
+.checkbox-fields {
+  @include media-breakpoint-down("xs") {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .form-check {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    margin-bottom: 1.25rem;
+    padding-right: 2.125rem;
+    padding-left: 0;
+
+    label {
       position: relative;
+      display: inline-flex;
+      align-items: center;
+      margin: 0;
+      cursor: pointer;
+      font-weight: $font-weight-normal;
 
-      select {
+      span {
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      span:first-child {
+        margin-right: .5rem;
+        top: 4px;
+        position: relative;
+      }
+
+      input,
+      svg {
+        width: $checkbox-size;
+        height: $checkbox-size;
+      }
+
+      input {
+        position: relative;
+        margin: 0;
+        padding: 0;
         cursor: pointer;
+        transition: box-shadow 0.3s;
+        border: none;
+        border-radius: $input-border-radius;
+        outline: none;
+        background: $white;
+        box-shadow: inset 0 0 0 $input-border-width $gray-200;
+        appearance: none;
+
+        &:hover {
+          box-shadow: inset 0 0 0 $input-border-width darken($gray-200, 5%);
+        }
+
+        &:checked {
+          transition-delay: 0.4s;
+          box-shadow: inset 0 0 0 $input-border-width $primary;
+
+          &+svg {
+            stroke-dasharray: 16.1 86.12;
+            stroke-dashoffset: 102.22;
+          }
+        }
       }
 
       svg {
         position: absolute;
-        z-index: 2;
-        top: 50%;
-        right: 0.625rem;
-        transform: translateY(-50%);
+        top: 0;
+        left: 0;
+        width: $checkbox-size;
+        height: $checkbox-size;
+        transition: stroke-dasharray 0.6s, stroke-dashoffset 0.6s;
+        transform: scale(1) translateZ(0);
+        pointer-events: none;
+        fill: none;
+        stroke-width: 2px;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke: $primary;
+        stroke-dasharray: 86.12;
+        stroke-dashoffset: 86.12;
+      }
+    }
+  }
+}
+
+.dropdown-fields {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  @include media-breakpoint-up("md") {
+    flex-direction: row;
+
+    .form-group {
+      width: 50%;
+
+      &:first-child {
+        margin-right: 0.5em;
+      }
+
+      &:last-child {
+        margin-left: 0.5em;
       }
     }
   }
 
-  .checkbox-fields {
-    @include media-breakpoint-down("xs") {
-      display: flex;
-      flex-wrap: wrap;
+  .form-group {
+    position: relative;
+    margin-bottom: 1.25rem;
+
+    select {
+      cursor: pointer;
+    }
+
+    svg {
+      position: absolute;
+      z-index: 2;
+      top: 50%;
+      right: 0.625rem;
+      transform: translateY(-50%);
     }
   }
 }

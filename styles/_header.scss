@@ -1,21 +1,32 @@
 .waves {
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+  height: 31.25rem;
   color: $primary;
+
+  @include media-breakpoint-down("sm") {
+    height: 40rem;
+  }
+
+  @include media-breakpoint-down("xs") {
+    height: 30rem;
+  }
 
   svg {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 31.25rem;
+    height: 100%;
 
     @include media-breakpoint-down("sm") {
       width: 80rem;
-      height: 40rem;
     }
 
     @include media-breakpoint-down("xs") {
       width: 50rem;
-      height: 30rem;
     }
 
     &:first-of-type {
@@ -37,22 +48,22 @@
   }
 
   .header-content {
+    display: block;
     width: 62rem;
     max-width: 100%;
-    display: block;
     margin: 0 auto;
     text-align: center;
   }
 
   .site-title {
-    max-width: 100%;
     display: block;
+    max-width: 100%;
     margin: 0 0 2rem;
     text-transform: uppercase;
     color: $white;
     text-shadow: 2px 2px $primary;
-    font-family: 'Teko', sans-serif;
-    font-size: 6rem;
+    font-family: "Teko", sans-serif;
+    font-size: 4rem;
     font-weight: 900;
 
     @include media-breakpoint-up("md") {

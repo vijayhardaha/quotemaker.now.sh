@@ -55,7 +55,6 @@ const FilterBox = ({
 					<FiChevronDown />
 				</Form.Group>
 			</div>
-			<div className="clearfix"></div>
 			<div className="checkbox-fields">
 				<Form.Check>
 					<Form.Check.Label htmlFor="checkbox-discount">
