@@ -58,6 +58,8 @@ const Builder = () => {
 
 	const [preview, setPreview] = useState(false);
 
+	const [load, setLoad] = useState(false);
+
 	const calculate = () => {
 		// Sub total
 		const s = items
@@ -96,6 +98,16 @@ const Builder = () => {
 		setData(DEFAULT_DATA);
 	};
 
+	const Mobile = ({ children }) => {
+		const isMobile = useMediaQuery({ maxWidth: 767 });
+		return isMobile ? children : null;
+	};
+
+	const Default = ({ children }) => {
+		const isNotMobile = useMediaQuery({ minWidth: 768 });
+		return isNotMobile ? children : null;
+	};
+
 	useEffect(() => {
 		calculate();
 	}, [
@@ -109,20 +121,14 @@ const Builder = () => {
 		vatAmt,
 	]);
 
-	const Mobile = ({ children }) => {
-		const isMobile = useMediaQuery({ maxWidth: 767 });
-		return isMobile ? children : null;
-	};
-
-	const Default = ({ children }) => {
-		const isNotMobile = useMediaQuery({ minWidth: 768 });
-		return isNotMobile ? children : null;
-	};
-
 	// Set focus on the dynamic input field
 	useEffect(() => {
-		if (items[items.length - 1].iref) {
-			items[items.length - 1].iref.focus();
+		if (load) {
+			if (items[items.length - 1].iref) {
+				items[items.length - 1].iref.focus();
+			}
+		} else {
+			setLoad(true);
 		}
 	}, [items.length]);
 
