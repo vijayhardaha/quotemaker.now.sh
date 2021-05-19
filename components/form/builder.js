@@ -20,7 +20,7 @@ import Items from "./items";
 import Summary from "./summary";
 import Modal from "./modal";
 import Preview from "../preview/preview";
-import { float, percent, isNumber } from "../../lib/util";
+import { int, float, percent, isNumber } from "../../lib/util";
 
 /**
  * Main Component
@@ -83,10 +83,7 @@ const Builder = () => {
 		}
 
 		if (discount && isNumber(discountAmt)) {
-			d =
-				discountType === "1"
-					? discountAmt
-					: percent(subtotal, discountAmt);
+			d = discountType === "1" ? discountAmt : percent(subtotal, discountAmt);
 
 			setData({ discountTotal: d });
 		}
@@ -121,6 +118,13 @@ const Builder = () => {
 		const isNotMobile = useMediaQuery({ minWidth: 768 });
 		return isNotMobile ? children : null;
 	};
+
+	// Set focus on the dynamic input field
+	useEffect(() => {
+		if (items[items.length - 1].iref) {
+			items[items.length - 1].iref.focus();
+		}
+	}, [items.length]);
 
 	return (
 		<>
@@ -187,43 +191,29 @@ const Builder = () => {
 
 					<Notes value={notes} setData={setData} />
 
-					<Form.Group
-						controlId="form-actions"
-						className="form-actions"
-					>
-						<Button
-							variant="primary"
-							onClick={() => setPreview(true)}
-						>
+					<Form.Group controlId="form-actions" className="form-actions">
+						<Button variant="primary" onClick={() => setPreview(true)}>
 							<GrVmware />
 							Generate Preview
 						</Button>
-						<Button
-							variant="secondary"
-							onClick={() => modalToggle(true)}
-						>
+						<Button variant="secondary" onClick={() => modalToggle(true)}>
 							<FiScissors />
 							Clear Data
 						</Button>
 					</Form.Group>
 
-					{modalOpen && (
-						<Modal resetForm={resetForm} showModal={modalToggle} />
-					)}
+					{modalOpen && <Modal resetForm={resetForm} showModal={modalToggle} />}
 				</Form>
 			)}
 			<Mobile>
 				<div className="bg-primary text-white p-3 mb-5 rounded">
 					<p className="mb-0">
-						This tool does not support preview on small screen.
-						Please use a device with big screen to see the previews.
+						This tool does not support preview on small screen. Please use a
+						device with big screen to see the previews.
 					</p>
 				</div>
 				{preview && (
-					<Button
-						variant="secondary"
-						onClick={() => setPreview(false)}
-					>
+					<Button variant="secondary" onClick={() => setPreview(false)}>
 						Go Back
 					</Button>
 				)}

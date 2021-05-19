@@ -136,11 +136,22 @@ const Summary = ({
 													});
 												}
 											}}
+											onBlur={(e) => {
+												if (isNaN(e.target.value)) {
+													setData({
+														customCostAmt: "",
+													});
+												}
+											}}
 										/>
 									</span>
 								</div>
 							</td>
-							<td>{price(currency, customCostAmt)}</td>
+							<td>
+								{isNaN(customCostAmt)
+									? price(currency, 0)
+									: price(currency, customCostAmt)}
+							</td>
 						</tr>
 					) : (
 						<></>

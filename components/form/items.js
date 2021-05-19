@@ -1,6 +1,7 @@
 /**
  * Package dependancies
  */
+import { useEffect } from "react";
 import { Form, Button } from "react-bootstrap";
 import { FiPlusSquare, FiX } from "react-icons/fi";
 import classnames from "classnames";
@@ -8,28 +9,25 @@ import classnames from "classnames";
 /**
  * Local dependancies
  */
-import { int, float, validateQty, validatePrice } from "../../lib/util";
+import {
+	int,
+	float,
+	validateQty,
+	validatePrice,
+	isEmpty,
+} from "../../lib/util";
 
 /**
  * Main Component
  */
 const Items = ({ hourly, items, setData }) => {
-	const handleItemsOnBlur = () => {
-		const _items = items.map((item) => {
-			item.qty = int(item.qty);
-			item.price = float(item.price);
-			item.total = float(item.total);
-			return item;
-		});
-		setData({ items: _items });
-	};
-
 	const itemSet = [
 		{
 			title: "",
 			qty: "",
 			price: "",
 			total: "",
+			iref: null,
 		},
 	];
 
@@ -44,7 +42,26 @@ const Items = ({ hourly, items, setData }) => {
 		}
 	};
 
-	const rows = items.map(({ title, qty, price, total }, i) => {
+	const handleKeyup = (e) => {
+		if (!isEmpty(e.target.value)) {
+			const key = e.which || e.keyCode;
+			if (key === 13) {
+				addNewItem();
+			}
+		}
+	};
+
+	const blurHandle = () => {
+		const _items = items.map((item) => {
+			item.qty = int(item.qty);
+			item.price = float(item.price);
+			item.total = float(item.total);
+			return item;
+		});
+		setData({ items: _items });
+	};
+
+	const rows = items.map((item, i) => {
 		return (
 			<div className="item-row" key={`item-row-${i}`}>
 				<div className="item-col title">
@@ -52,12 +69,14 @@ const Items = ({ hourly, items, setData }) => {
 						type="text"
 						className="item-title"
 						placeholder="Task Name"
-						value={title}
+						value={item.title}
+						ref={(e) => (item.iref = e)}
 						onChange={(e) => {
 							const _items = [...items];
 							_items[i].title = e.target.value;
 							setData({ items: _items });
 						}}
+						onKeyUp={handleKeyup}
 					/>
 				</div>
 				<div className="item-group">
@@ -68,7 +87,7 @@ const Items = ({ hourly, items, setData }) => {
 									type="tel"
 									className="item-qty form-control"
 									placeholder="1"
-									value={int(qty)}
+									value={int(item.qty)}
 									onChange={(e) => {
 										const qty = e.target.value;
 										if (validateQty(qty)) {
@@ -80,7 +99,7 @@ const Items = ({ hourly, items, setData }) => {
 											setData({ items: _items });
 										}
 									}}
-									onBlur={() => handleItemsOnBlur()}
+									onBlur={blurHandle}
 								/>
 							</div>
 							<div className="item-col price">
@@ -88,7 +107,7 @@ const Items = ({ hourly, items, setData }) => {
 									type="tel"
 									className="item-price form-control"
 									placeholder="0.00"
-									value={price}
+									value={item.price}
 									onChange={(e) => {
 										const price = e.target.value;
 										if (validatePrice(price)) {
@@ -100,7 +119,7 @@ const Items = ({ hourly, items, setData }) => {
 											setData({ items: _items });
 										}
 									}}
-									onBlur={() => handleItemsOnBlur()}
+									onBlur={blurHandle}
 								/>
 							</div>
 						</>
@@ -110,11 +129,8 @@ const Items = ({ hourly, items, setData }) => {
 					<div className="item-col total">
 						<Form.Control
 							type="tel"
-							id={`item-total-${i}`}
-							data-id={i}
-							data-name="total"
 							className="item-total form-control"
-							value={total}
+							value={item.total}
 							placeholder="0.00"
 							disabled={hourly}
 							onChange={(e) => {
@@ -128,7 +144,7 @@ const Items = ({ hourly, items, setData }) => {
 									setData({ items: _items });
 								}
 							}}
-							onBlur={() => handleItemsOnBlur()}
+							onBlur={blurHandle}
 						/>
 					</div>
 					<Button
