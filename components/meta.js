@@ -1,5 +1,5 @@
 /**
- * External dependancies
+ * Package dependancies
  */
 import Head from "next/head";
 

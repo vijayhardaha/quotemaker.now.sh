@@ -1,14 +1,16 @@
 /**
- * External dependancies
+ * Package dependancies
  */
 import { Form } from "react-bootstrap";
 
 /**
- * Internal dependancies
+ * Local dependancies
  */
-import { decimal, getCurrency, priceCheck, price } from "../../lib/util";
-import PriceInput from "../controls/price-input";
+import { getCurrency, price, validatePrice } from "../../lib/util";
 
+/**
+ * Main Component
+ */
 const Summary = ({
 	currency,
 	discount,
@@ -40,17 +42,16 @@ const Summary = ({
 								<div className="inline-row">
 									<span className="text">Discount</span>
 									<span>
-										<PriceInput
-											className="form-control"
-											id="discount-amount"
-											placeholder="0.00"
+										<Form.Control
 											type="tel"
-											value={decimal(discountAmt)}
+											className="form-control"
+											placeholder="0.00"
+											value={discountAmt}
 											onChange={(e) => {
-												const value = priceCheck(
-													e.target.value
-												);
-												setData({ discountAmt: value });
+												const value = e.target.value;
+												if (validatePrice(value)) {
+													setData({ discountAmt: value });
+												}
 											}}
 										/>
 									</span>
@@ -62,20 +63,17 @@ const Summary = ({
 											value={discountType}
 											onChange={(e) => {
 												setData({
-													discountType:
-														e.target.value,
+													discountType: e.target.value,
 												});
 											}}
 										>
 											<option value="0">%</option>
-											<option value="1">
-												{getCurrency(currency)}
-											</option>
+											<option value="1">{getCurrency(currency)}</option>
 										</Form.Control>
 									</span>
 								</div>
 							</td>
-							<td>{price(currency, discountTotal)}</td>
+							<td>{`-${price(currency, discountTotal)}`}</td>
 						</tr>
 					) : (
 						<></>
@@ -87,16 +85,16 @@ const Summary = ({
 								<div className="inline-row">
 									<span className="text">Vat/Tax(%)</span>
 									<span>
-										<PriceInput
+										<Form.Control
 											type="tel"
-											value={decimal(vatAmt)}
+											value={vatAmt}
 											className="form-control"
 											placeholder="0.00"
 											onChange={(e) => {
-												const value = priceCheck(
-													e.target.value
-												);
-												setData({ vatAmt: value });
+												const value = e.target.value;
+												if (validatePrice(value)) {
+													setData({ vatAmt: value });
+												}
 											}}
 										/>
 									</span>
@@ -125,22 +123,18 @@ const Summary = ({
 										/>
 									</span>
 									<span>
-										<PriceInput
+										<Form.Control
 											type="tel"
 											className="form-control"
-											value={decimal(customCostAmt)}
+											value={customCostAmt}
 											placeholder="0.00"
-											maskOptions={{
-												allowNegative: true,
-											}}
 											onChange={(e) => {
-												const value = priceCheck(
-													e.target.value,
-													true
-												);
-												setData({
-													customCostAmt: value,
-												});
+												const value = e.target.value;
+												if (validatePrice(value, true)) {
+													setData({
+														customCostAmt: value,
+													});
+												}
 											}}
 										/>
 									</span>
@@ -162,4 +156,5 @@ const Summary = ({
 	);
 };
 
+// Default Export
 export default Summary;

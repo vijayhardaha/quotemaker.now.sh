@@ -1,5 +1,5 @@
 /**
- * Internal dependancies
+ * Local dependancies
  */
 import Meta from "./meta";
 import Wrapper from "./wrapper";

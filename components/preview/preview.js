@@ -1,14 +1,17 @@
 /**
- * External dependancies
+ * Package dependancies
  */
 import { useEffect } from "react";
 
 /**
- * Internal dependancies
+ * Local dependancies
  */
 import { price, int, nl2br, float, zeroPad } from "../../lib/util";
 import PreviewActions from "./actions";
 
+/**
+ * Main Component
+ */
 const Preview = ({
 	closePreview,
 	hourly,
@@ -40,9 +43,7 @@ const Preview = ({
 			<div className="content" id="preview">
 				<div className="preview-header">
 					{title !== "" && <h1 className="project-title">{title}</h1>}
-					{desc !== "" && (
-						<p className="project-description">{nl2br(desc)}</p>
-					)}
+					{desc !== "" && <p className="project-description">{nl2br(desc)}</p>}
 				</div>
 				<div className="clearfix"></div>
 
@@ -67,28 +68,17 @@ const Preview = ({
 							{items.map((item, index) => {
 								return (
 									<tr key={index}>
-										<td className="no">
-											{zeroPad(index + 1, 2)}
-										</td>
+										<td className="no">{zeroPad(index + 1, 2)}</td>
 										<td className="description">
 											<span>{item.title.toString()}</span>
 										</td>
 										{hourly && (
 											<>
-												<td className="price">
-													{price(
-														currency,
-														item.price
-													)}
-												</td>
-												<td className="qty">
-													{int(item.qty)}
-												</td>
+												<td className="price">{price(currency, item.price)}</td>
+												<td className="qty">{int(item.qty)}</td>
 											</>
 										)}
-										<td className="total">
-											{price(currency, item.total)}
-										</td>
+										<td className="total">{price(currency, item.total)}</td>
 									</tr>
 								);
 							})}
@@ -109,13 +99,9 @@ const Preview = ({
 									<tr>
 										<td>
 											Discount
-											{discountType == "0"
-												? ` (${float(discountAmt)}%)`
-												: ""}
+											{discountType == "0" ? ` (${float(discountAmt)}%)` : ""}
 										</td>
-										<td>
-											-{price(currency, discountTotal)}
-										</td>
+										<td>-{price(currency, discountTotal)}</td>
 									</tr>
 								)}
 								{vat && vatTotal > 0 && (
@@ -130,13 +116,9 @@ const Preview = ({
 								{customCost && customCostAmt != 0 && (
 									<tr>
 										<td>
-											{customCostLabel === ""
-												? "Other"
-												: customCostLabel}
+											{customCostLabel === "" ? "Other" : customCostLabel}
 										</td>
-										<td>
-											{price(currency, customCostAmt)}
-										</td>
+										<td>{price(currency, customCostAmt)}</td>
 									</tr>
 								)}
 							</tbody>
@@ -180,9 +162,7 @@ const Preview = ({
 
 				<p className="branding">
 					Quotes generated from{" "}
-					<a href="https://quotemaker.now.sh/">
-						https://quotemaker.now.sh/
-					</a>
+					<a href="https://quotemaker.now.sh/">https://quotemaker.now.sh/</a>
 				</p>
 			</div>
 			<PreviewActions close={closePreview} />
@@ -190,4 +170,5 @@ const Preview = ({
 	);
 };
 
+// Default Export
 export default Preview;

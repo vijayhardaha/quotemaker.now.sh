@@ -1,12 +1,15 @@
 /**
- * External dependancies
+ * Package dependancies
  */
 import { Form } from "react-bootstrap";
 
 /**
- * Internal dependancies
+ * Local dependancies
  */
 
+/**
+ * Main Component
+ */
 const Title = ({ value, setData }) => {
 	return (
 		<Form.Group controlId="title">
@@ -21,4 +24,5 @@ const Title = ({ value, setData }) => {
 	);
 };
 
+// Default Export
 export default Title;

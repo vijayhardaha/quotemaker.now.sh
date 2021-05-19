@@ -1,12 +1,15 @@
 /**
- * External dependancies
+ * Package dependancies
  */
 import { Form } from "react-bootstrap";
 
 /**
- * Internal dependancies
+ * Local dependancies
  */
 
+/**
+ * Main Component
+ */
 const Notes = ({ value, setData }) => {
 	return (
 		<Form.Group controlId="notes">
@@ -22,4 +25,5 @@ const Notes = ({ value, setData }) => {
 	);
 };
 
+// Default Export
 export default Notes;

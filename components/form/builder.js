@@ -1,5 +1,5 @@
 /**
- * External dependancies
+ * Package dependancies
  */
 import { useState, useEffect, useReducer, useRef } from "react";
 import { Form, Button } from "react-bootstrap";
@@ -8,7 +8,7 @@ import { FiScissors } from "react-icons/fi";
 import { useMediaQuery } from "react-responsive";
 
 /**
- * Internal dependancies
+ * Local dependancies
  */
 import { DEFAULT_DATA } from "../../lib/constants";
 import FilterBox from "./filters";
@@ -22,6 +22,9 @@ import Modal from "./modal";
 import Preview from "../preview/preview";
 import { float, percent, isNumber } from "../../lib/util";
 
+/**
+ * Main Component
+ */
 const Builder = () => {
 	const [
 		{
@@ -229,4 +232,5 @@ const Builder = () => {
 	);
 };
 
+// Default Export
 export default Builder;

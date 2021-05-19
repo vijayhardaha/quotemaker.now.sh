@@ -1,5 +1,5 @@
 /**
- * External dependancies
+ * Package dependancies
  */
 import { useState, useEffect } from "react";
 import { ButtonGroup, Button } from "react-bootstrap";
@@ -7,10 +7,13 @@ import { useAsyncCallback } from "actionsack";
 import { FiDownload, FiCopy } from "react-icons/fi";
 
 /**
- * Internal dependancies
+ * Local dependancies
  */
 import { downloadImage, copyImage } from "../../lib/download";
 
+/**
+ * Main Component
+ */
 const PreviewActions = ({ close }) => {
 	const clipboardSupported = () => {
 		const [isClipboardSupports, setClipboardSupport] = useState(false);
@@ -71,4 +74,5 @@ const PreviewActions = ({ close }) => {
 	);
 };
 
+// Default Export
 export default PreviewActions;

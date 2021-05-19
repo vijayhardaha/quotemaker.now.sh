@@ -1,16 +1,19 @@
 /**
- * External dependancies
+ * Package dependancies
  */
 import { useEffect } from "react";
 import { Form } from "react-bootstrap";
 import { FiChevronDown } from "react-icons/fi";
 
 /**
- * Internal dependancies
+ * Local dependancies
  */
 import { TABLE_TYPES, CURRENCIES, CHECKBOX_SVG } from "../../lib/constants";
 import { renderDropdown } from "../../lib/util";
 
+/**
+ * Main Component
+ */
 const FilterBox = ({
 	currency,
 	customCost,
@@ -111,4 +114,5 @@ const FilterBox = ({
 	);
 };
 
+// Default Export
 export default FilterBox;

@@ -1,28 +1,57 @@
 /**
- * External dependancies
+ * Package dependancies
  */
 import { Form, Button } from "react-bootstrap";
 import { FiPlusSquare, FiX } from "react-icons/fi";
 import classnames from "classnames";
 
 /**
- * Internal dependancies
+ * Local dependancies
  */
-import { int, decimal, qtyCheck, priceCheck } from "../../lib/util";
-import PriceInput from "../controls/price-input";
+import { int, float, validateQty, validatePrice } from "../../lib/util";
 
+/**
+ * Main Component
+ */
 const Items = ({ hourly, items, setData }) => {
+	const handleItemsOnBlur = () => {
+		const _items = items.map((item) => {
+			item.qty = int(item.qty);
+			item.price = float(item.price);
+			item.total = float(item.total);
+			return item;
+		});
+		setData({ items: _items });
+	};
+
+	const itemSet = [
+		{
+			title: "",
+			qty: "",
+			price: "",
+			total: "",
+		},
+	];
+
+	const addNewItem = () => setData({ items: [...items, ...itemSet] });
+
+	const removeItem = (i) => {
+		const _items = items.filter((v, I) => I !== i);
+		if (_items.length === 0) {
+			setData({ items: [...itemSet] });
+		} else {
+			setData({ items: _items });
+		}
+	};
+
 	const rows = items.map(({ title, qty, price, total }, i) => {
 		return (
 			<div className="item-row" key={`item-row-${i}`}>
 				<div className="item-col title">
 					<Form.Control
-						className="item-title"
-						data-id={i}
-						data-name="title"
-						id={`item-title-${i}`}
-						placeholder="Task Name"
 						type="text"
+						className="item-title"
+						placeholder="Task Name"
 						value={title}
 						onChange={(e) => {
 							const _items = [...items];
@@ -35,51 +64,43 @@ const Items = ({ hourly, items, setData }) => {
 					{hourly ? (
 						<>
 							<div className="item-col qty">
-								<PriceInput
-									id={`item-qty-${i}`}
-									data-id={i}
-									data-name="qty"
+								<Form.Control
 									type="tel"
+									className="item-qty form-control"
 									placeholder="1"
 									value={int(qty)}
-									className="item-qty form-control"
-									maskOptions={{
-										allowDecimal: false,
-										integerLimit: 4,
-									}}
 									onChange={(e) => {
-										const _items = [...items];
-										const qty = qtyCheck(e.target.value);
-										const price = priceCheck(
-											_items[i].price
-										);
-										_items[i].qty = qty;
-										_items[i].price = price;
-										_items[i].total = price * qty;
-										setData({ items: _items });
+										const qty = e.target.value;
+										if (validateQty(qty)) {
+											const _items = [...items];
+											const price = float(_items[i].price);
+											_items[i].qty = int(qty);
+											_items[i].price = price;
+											_items[i].total = price * qty;
+											setData({ items: _items });
+										}
 									}}
+									onBlur={() => handleItemsOnBlur()}
 								/>
 							</div>
 							<div className="item-col price">
-								<PriceInput
-									id={`item-price-${i}`}
-									data-id={i}
-									data-name="price"
+								<Form.Control
 									type="tel"
-									placeholder="0.00"
-									value={decimal(price)}
 									className="item-price form-control"
+									placeholder="0.00"
+									value={price}
 									onChange={(e) => {
-										const _items = [...items];
-										const price = priceCheck(
-											e.target.value
-										);
-										const qty = qtyCheck(_items[i].qty);
-										_items[i].qty = qty;
-										_items[i].price = price;
-										_items[i].total = price * qty;
-										setData({ items: _items });
+										const price = e.target.value;
+										if (validatePrice(price)) {
+											const _items = [...items];
+											const qty = int(_items[i].qty, 1);
+											_items[i].qty = qty;
+											_items[i].price = price;
+											_items[i].total = price * qty;
+											setData({ items: _items });
+										}
 									}}
+									onBlur={() => handleItemsOnBlur()}
 								/>
 							</div>
 						</>
@@ -87,33 +108,33 @@ const Items = ({ hourly, items, setData }) => {
 						<></>
 					)}
 					<div className="item-col total">
-						<PriceInput
+						<Form.Control
+							type="tel"
 							id={`item-total-${i}`}
 							data-id={i}
 							data-name="total"
-							type="tel"
-							value={decimal(total)}
-							placeholder="0.00"
 							className="item-total form-control"
+							value={total}
+							placeholder="0.00"
 							disabled={hourly}
 							onChange={(e) => {
-								const _items = [...items];
-								const total = priceCheck(e.target.value);
-								const qty = qtyCheck(_items[i].qty);
-								_items[i].qty = qty;
-								_items[i].price = total / qty;
-								_items[i].total = total;
-								setData({ items: _items });
+								const total = e.target.value;
+								if (validatePrice(total)) {
+									const _items = [...items];
+									const qty = int(_items[i].qty, 1);
+									_items[i].qty = qty;
+									_items[i].price = total / qty;
+									_items[i].total = total;
+									setData({ items: _items });
+								}
 							}}
+							onBlur={() => handleItemsOnBlur()}
 						/>
 					</div>
 					<Button
 						variant="danger"
 						className="item-remove"
-						onClick={(e) => {
-							const newItems = items.filter((v, I) => I !== i);
-							setData({ items: newItems });
-						}}
+						onClick={(e) => removeItem(i)}
 						type="button"
 					>
 						<FiX />
@@ -147,11 +168,9 @@ const Items = ({ hourly, items, setData }) => {
 							</span>
 						</>
 					) : (
-						<>
-							<span className="item-col total" title="Amount">
-								Amount
-							</span>
-						</>
+						<span className="item-col total" title="Amount">
+							Amount
+						</span>
 					)}
 					<span className="item-remove"></span>
 				</div>
@@ -161,18 +180,7 @@ const Items = ({ hourly, items, setData }) => {
 				className="btn-primary btn-block"
 				id="add-new-item"
 				type="button"
-				onClick={(e) => {
-					const sets = [
-						{
-							title: "",
-							qty: 1,
-							price: 0,
-							total: 0,
-						},
-					];
-					const newItems = [...items, ...sets];
-					setData({ items: newItems });
-				}}
+				onClick={() => addNewItem()}
 			>
 				<FiPlusSquare />
 				Add New Item
@@ -181,4 +189,5 @@ const Items = ({ hourly, items, setData }) => {
 	);
 };
 
+// Default Export
 export default Items;

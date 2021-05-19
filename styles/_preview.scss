@@ -89,9 +89,14 @@
 
       td,
       th {
-        max-width: 50%;
-        flex: 0 0 50%;
+        flex-shrink: 0;
+        width: 50%;
+        flex: 0 0 auto;
         white-space: nowrap;
+
+        &:last-child {
+          text-align: right;
+        }
       }
     }
   }
@@ -110,7 +115,7 @@
     th,
     td {
       &.qty {
-        width: 3.625rem;
+        width: 2.5rem;
         padding: 0;
       }
 
@@ -120,7 +125,7 @@
 
       &.price,
       &.total {
-        width: 8.75rem;
+        width: 6rem;
         padding: 0;
       }
     }
@@ -155,14 +160,16 @@
       td {
         position: relative;
         z-index: 2;
-        padding: 0.5rem 1.125rem;
+        padding: 0.5rem 0.825rem;
 
         &:first-child {
-          padding-left: 2rem;
+          padding-left: 1.225rem;
+					text-align: left;
         }
 
         &:last-child {
-          padding-right: 2rem;
+          padding-right: 1.25rem;
+          text-align: right;
         }
       }
 
@@ -193,8 +200,9 @@
   text-align: center;
   letter-spacing: 0.5px;
   color: $gray-600;
+  font-size: 0.825rem;
 
-  font-size: 0.825rem a {
+  a {
     text-decoration: none;
     pointer-events: none;
     color: $primary;

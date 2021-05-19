@@ -1,10 +1,10 @@
 /**
- * External dependancies
+ * Package dependancies
  */
 import Link from "next/link";
 
 /**
- * Internal dependancies
+ * Local dependancies
  */
 import Wrapper from "./wrapper";
 

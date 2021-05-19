@@ -40,12 +40,7 @@
 }
 
 .site-header {
-  padding: 7.25rem 0 4.375rem;
-
-  @include media-breakpoint-down("xs") {
-    padding: 2.125rem 0 0;
-    text-align: center;
-  }
+  padding: 1.25rem 0 0;
 
   .header-content {
     display: block;
@@ -84,7 +79,6 @@
   .site-description {
     margin-bottom: 3.125rem;
     color: $dark;
-    text-shadow: 0 0 rgba($black, 0.3);
     font-size: 1.125rem;
   }
 }
